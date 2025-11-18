@@ -1,0 +1,389 @@
+/**
+ * Header (Cabeçalho)
+ * Navegação principal, logo, ícones e busca
+ */
+
+/* =====================================================
+   HEADER PRINCIPAL
+   ===================================================== */
+
+header {
+  background-color: var(--cor-principal);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  transition: background-color var(--transition-slow) var(--ease-out);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 0;
+  box-sizing: border-box;
+}
+
+/* Estado de scroll - efeito glass morphism suave */
+header.header-rolando {
+  background-color: rgba(0, 51, 0, 0.90);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: 0.96;
+  padding: 20px 0;
+}
+
+/* =====================================================
+   CONTAINER COM LARGURA LIMITADA
+   ===================================================== */
+
+.largura-limitada,
+.header-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 60px;
+  box-sizing: border-box;
+  width: 100%;
+  /* Grid de 3 colunas para centralizar navegação perfeitamente */
+  display: grid;
+  grid-template-columns: 180px 1fr 180px;
+  align-items: center;
+  gap: 40px;
+}
+
+/* =====================================================
+   LOGO
+   ===================================================== */
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  justify-self: start;
+}
+
+.header-logo img {
+  height: 65px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* =====================================================
+   NAVEGAÇÃO PRINCIPAL
+   ===================================================== */
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+}
+
+.menu-principal {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+}
+
+.menu-principal > li {
+  position: relative;
+}
+
+.menu-principal > li > a {
+  padding: 12px 15px;
+  text-decoration: none;
+  color: var(--cor-branca);
+  display: inline-block;
+  position: relative;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-medium);
+  transition: opacity var(--transition-fast) var(--ease-out);
+  letter-spacing: 0;
+}
+
+.menu-principal > li > a:hover {
+  opacity: 0.7;
+}
+
+/* Efeito sublinhado animado */
+.menu-principal > li > a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  bottom: 10px;
+  background-color: var(--cor-branca);
+  transform: translateX(-50%);
+  transition: width var(--transition-slow) var(--ease-out);
+}
+
+.menu-principal > li > a:hover::after,
+.menu-principal > li > a.pagina-ativa::after {
+  width: 100%;
+}
+
+.menu-principal > li > a.pagina-ativa {
+  font-weight: var(--font-weight-medium);
+}
+
+/* =====================================================
+   SUBMENU
+   ===================================================== */
+
+.menu-principal li .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cor-principal);
+  border-radius: var(--radius-md);
+  width: 260px;
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-dropdown);
+  padding: 14px 0;
+  list-style: none;
+}
+
+.menu-principal li .submenu li a {
+  display: block;
+  padding: 12px 22px;
+  color: var(--cor-branca);
+  text-decoration: none;
+  transition: background var(--transition-fast) var(--ease-out);
+  font-size: 1.05rem;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: 0;
+  word-spacing: 0;
+}
+
+.menu-principal li .submenu li a:hover,
+.menu-principal li .submenu li a:focus {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.menu-principal > li:hover > .submenu,
+.menu-principal > li:focus-within > .submenu {
+  display: block;
+}
+
+/* =====================================================
+   ÍCONES DO HEADER
+   ===================================================== */
+
+.header-icones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  justify-self: end;
+}
+
+.header-icones a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-slow) var(--ease-out);
+}
+
+.header-icones a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.header-icones a svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--cor-branca);
+  transition: stroke var(--transition-slow) var(--ease-out);
+  fill: none;
+}
+
+.header-icones a:hover svg {
+  stroke: #c7c7c7;
+}
+
+/* =====================================================
+   CARRINHO - CONTADOR
+   ===================================================== */
+
+.icone-carrinho {
+  position: relative;
+}
+
+.carrinho-contador {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: rgb(228, 41, 41);
+  color: var(--cor-branca);
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* =====================================================
+   BUSCA - OVERLAY
+   ===================================================== */
+
+.busca-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 51, 0, 0.98);
+  padding: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  z-index: calc(var(--z-fixed) + 1);
+  box-shadow: var(--shadow-lg);
+  animation: slideDown var(--transition-slow) var(--ease-out);
+}
+
+.busca-container.ativo {
+  display: flex;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.campo-busca {
+  max-width: 600px;
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  font-size: var(--font-size-base);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--cor-texto);
+  outline: none;
+  transition: border-color var(--transition-slow) var(--ease-out),
+              box-shadow var(--transition-slow) var(--ease-out);
+}
+
+.campo-busca:focus {
+  border-color: var(--cor-branca);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.campo-busca::placeholder {
+  color: #999;
+}
+
+.btn-fechar-busca {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--cor-branca);
+  font-size: 28px;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-slow) var(--ease-out);
+  line-height: 1;
+  padding: 0;
+}
+
+.btn-fechar-busca:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: var(--cor-branca);
+  transform: rotate(90deg);
+}
+
+/* =====================================================
+   RESULTADOS DE BUSCA
+   ===================================================== */
+
+.produto-oculto {
+  display: none !important;
+}
+
+.sem-resultados {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--cor-texto);
+}
+
+.sem-resultados svg {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  opacity: 0.3;
+}
+
+.sem-resultados h3 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-sm);
+  color: var(--cor-principal);
+}
+
+.sem-resultados p {
+  font-size: var(--font-size-base);
+  color: var(--cor-texto);
+  opacity: 0.7;
+}
+
+/* =====================================================
+   RESPONSIVE - MOBILE
+   ===================================================== */
+
+@media (max-width: 900px) {
+  header {
+    padding: 15px 0;
+  }
+
+  .largura-limitada,
+  .header-container {
+    padding: 0 20px;
+    gap: 20px;
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .header-logo img {
+    height: 45px;
+  }
+
+  .menu-principal {
+    gap: 20px;
+  }
+
+  .menu-principal > li > a {
+    font-size: 0.95rem;
+    padding: 8px 10px;
+  }
+
+  .header-icones {
+    gap: 15px;
+  }
+
+  .header-icones a svg {
+    width: 22px;
+    height: 22px;
+  }
+}

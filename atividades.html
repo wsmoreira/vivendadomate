@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Camping - Hospedagem | Vivenda do Mate</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/camping-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="camping-page">
+ <header>
+  <div class="largura-limitada">
+    <!-- LOGO -->
+    <div class="header-logo">
+      <a href="./index.html">
+        <img src="./images/logomarca.png" alt="logo do site">
+      </a>
+    </div>
+
+    <!-- MENU PRINCIPAL -->
+    <nav>
+      <ul class="menu-principal">
+        <li>
+          <a href="index.html">Sobre</a>
+          <ul class="submenu">
+            <li><a href="quem-somos.html">Quem somos</a></li>
+            <li><a href="nossa-producao.html">Nossa produção</a></li>
+            <li><a href="etapas-producao.html">Etapas da produção</a></li>
+            <li><a href="indicacao-geografica.html">Indicação Geográfica</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Turismo</a>
+          <ul class="submenu">
+            <li><a href="turismo.html">Passeios & Experiências</a></li>
+            <li><a href="atividades.html">Camping</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="receitas.html">Receitas</a>
+        </li>
+
+        <li>
+          <a href="loja.html">Loja</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ÍCONES À DIREITA -->
+    <div class="header-icones">
+      <a href="#" class="icone-link" aria-label="minha conta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </a>
+
+      <a href="#" class="icone-link icone-carrinho" aria-label="carrinho de compras">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span class="carrinho-contador">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+    <!-- SUBMENU FIXO DO CAMPING -->
+    <nav class="camping-nav">
+        <a href="camping-vivencias.html" class="camping-nav-link"><i class="fas fa-leaf"></i> Vivências na Natureza</a>
+        <a href="camping-plantio.html" class="camping-nav-link"><i class="fas fa-seedling"></i> Plantio</a>
+        <a href="camping-fogueira.html" class="camping-nav-link"><i class="fas fa-fire"></i> Fogueira</a>
+        <a href="camping-reserva.html" class="camping-nav-link"><i class="fas fa-calendar"></i> Reserva</a>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <a href="camping-reserva.html" class="hero-link-wrapper">
+                <div class="overlay"></div>
+                <h2>Bem-vindo à Vivenda do Mate</h2>
+                <p>Experiência única de camping com vivências na natureza, fogueira e chimarrão. Reserve agora!</p>
+            </a>
+        </section>
+
+        <section id="hospedagem">
+            <h2><i class="fas fa-tent"></i> Camping</h2>
+
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-tree fa-3x"></i>
+                    <h3>Ambiente Natural</h3>
+                    <p>Imerso na natureza, com vistas incríveis.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-users"></i>
+                    <h3>Para Grupos</h3>
+                    <p>Ideal para casais, famílias e amigos.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustentável</h3>
+                    <p>Práticas ecológicas em harmonia com a mata.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="eventos">
+            <h2><i class="fas fa-star"></i> Atrações</h2>
+
+            <div class="area-atividades">
+                <a href="camping-vivencias.html" class="atividade-card-link">
+                    <section id="vivencias" class="atividade-card">
+                        <div class="atividade-img-fundo" style="background-image: url('https://as2.ftcdn.net/jpg/02/09/13/01/1000_F_209130128_R7IPF1M7wOEeMEfuvuWxJi4TJae6EaOW.jpg');">
+                        </div>
+                        <div class="atividade-conteudo">
+                            <h2><i class="fas fa-leaf"></i> Vivências na Natureza</h2>
+                            <p>Participe de atividades imersivas na mata. Aprenda sobre a flora e fauna local com guias. Viva a natureza!</p>
+                        </div>
+                    </section>
+                </a>
+
+                <a href="camping-fogueira.html" class="atividade-card-link">
+                    <section id="fogueira" class="atividade-card">
+                        <div class="atividade-img-fundo" style="background-image: url('https://gooutside.com.br/wp-content/uploads/sites/3/2022/02/shutterstock_1163978302-e1644873170735.jpg');">
+                        </div>
+                        <div class="atividade-conteudo">
+                            <h2><i class="fas fa-fire"></i> Fogueira Central</h2>
+                            <p>Reúna-se ao redor da fogueira para contar histórias e compartilhar chimarrão. Uma roda de chimarrão tradicional para todos os hóspedes.</p>
+                        </div>
+                    </section>
+                </a>
+
+                <a href="camping-plantio.html" class="atividade-card-link">
+                    <section id="plantio" class="atividade-card">
+                        <div class="atividade-img-fundo" style="background-image: url('https://images.tcdn.com.br/img/img_prod/450860/muda_de_erva_mate_para_chimarrao_ilex_paraguariensis_334_1_20190611093853.jpg');">
+                        </div>
+                        <div class="atividade-conteudo">
+                            <h2><i class="fas fa-seedling"></i> Plantio de Erva</h2>
+                            <p>Participe do nosso projeto de reflorestamento plantando sua própria muda de Erva-Mate. Uma experiência sustentável e educativa!</p>
+                        </div>
+                    </section>
+                </a>
+            </div>
+        </section>
+
+        <section id="cta-reserva">
+            <div class="cta-content">
+                <a href="camping-reserva.html" class="button-link">Faça sua Reserva!</a>
+            </div>
+        </section>
+    </main>
+
+<footer class="site-footer">
+  <div class="largura-limitada">
+    <div class="social-icones">
+      <a href="https://www.facebook.com/vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+             viewBox="0 0 24 24" fill="currentColor">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+
+      <a href="https://www.instagram.com/vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+             viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
+
+      <a href="https://www.youtube.com/@vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso youtube">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+             viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 11.75a29 29 0 0 0-.46-5.33z">
+          </path>
+          <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+        </svg>
+      </a>
+    </div>
+
+    <p class="copyright-texto">
+            © 2025 Vivenda do Mate CNPJ: 40.801.747/0001-63.
+    </p>
+  </div>
+</footer>
+
+    <a href="#" id="chatbox-widget" aria-label="abrir chat">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+    </a>
+
+    <!-- CARRINHO LATERAL -->
+    <div class="carrinho-sidebar-overlay" id="carrinhoOverlay"></div>
+    <aside class="carrinho-sidebar" id="carrinhoSidebar">
+        <div class="carrinho-sidebar-header">
+            <h2>Meu Carrinho</h2>
+            <button class="carrinho-close-btn" id="carrinhoCloseBtn" aria-label="Fechar carrinho">&times;</button>
+        </div>
+
+        <div class="carrinho-sidebar-content" id="carrinhoContent">
+            <div class="carrinho-vazio" id="carrinhoVazio">
+                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <p>Seu carrinho está vazio</p>
+            </div>
+            <div id="carrinhoItens"></div>
+        </div>
+
+        <div class="carrinho-sidebar-footer" id="carrinhoFooter" style="display: none;">
+            <div class="carrinho-total">
+                <span class="carrinho-total-label">Total:</span>
+                <span class="carrinho-total-valor" id="carrinhoTotalValor">R$ 0,00</span>
+            </div>
+            <button class="carrinho-finalizar-btn" id="carrinhoFinalizarBtn">Finalizar Compra</button>
+        </div>
+    </aside>
+
+    <script src="js/script.js"></script>
+    <script src="js/camping.js"></script>
+    <script>
+        // Inicializar navegação do camping
+        document.addEventListener('DOMContentLoaded', () => {
+            new CampingNavigation();
+        });
+    </script>
+</body>
+
+</html>

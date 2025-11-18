@@ -1,0 +1,205 @@
+Explanation: move header out of <head>, remove duplicates and restore valid HTML structure; keep the original main content intact.
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Vivenda do Mate — Quem Somos</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- HEADER PADRÃO -->
+  <header>
+    <div class="largura-limitada">
+      <div class="header-logo">
+        <a href="./index.html">
+          <img src="./images/logomarca.png" alt="logo do site">
+        </a>
+      </div>
+
+      <nav>
+        <ul class="menu-principal">
+          <li>
+            <a href="#">Sobre</a>
+            <ul class="submenu">
+              <li><a href="quem-somos.html">Quem somos</a></li>
+              <li><a href="nossa-producao.html">Nossa produção</a></li>
+              <li><a href="etapas-producao.html">Etapas da produção</a></li>
+              <li><a href="indicacao-geografica.html">Indicação Geográfica</a></li>
+            </ul>
+          </li>
+                  <li>
+          <a href="#">Turismo</a>
+          <ul class="submenu">
+            <li><a href="turismo.html">Passeios & Experiências</a></li>
+            <li><a href="atividades.html">Camping</a></li>
+          </ul>
+        </li>
+                  <li>
+          <a href="receitas.html">Receitas</a>
+        </li>
+          <li><a href="loja.html">Loja</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-icones">
+        <a href="#" aria-label="Minha conta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+        <a href="#" class="icone-carrinho" aria-label="Carrinho de compras">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="carrinho-contador">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content" id="main-quem-somos" role="main">
+    <section class="quem-somos-secao">
+      <h1 id="titulo-quem">Somos a 5ª geração de produtores de Erva-mate de São Mateus do Sul</h1>
+
+      <!-- Novo layout: 2 blocos com imagens elegantes e texto completo fornecido -->
+      <article class="bloco-sobre fade-in" style="--delay: 0s">
+        <div class="imagem">
+          <img src="images/quem-somos2.avif" alt="Erva-mate da Vivenda - produção tradicional" loading="lazy">
+        </div>
+        <div class="texto">
+          <h2>Bem-vindo à Vivenda do Mate</h2>
+          <p>Bem-vindo ao universo autêntico e saboroso da Vivenda do Mate, onde a tradição se encontra com a inovação. Nosso compromisso vai além de oferecer um mate, servimos uma experiência única que abraça os rituais do chimarrão, a refrescância do tereré e a inovação na gastronomia. Com produtos de alta qualidade cultivados em nossos campos por gerações, a Vivenda do Mate logo estará pronta para transcender fronteiras e se tornar a escolha preferida de apreciadores de mate.</p>
+
+          <p>A erva-mate da Vivenda do Mate é nativa, produzida à sombra das araucárias, colhida no inverno, de secagem lenta, fragmentada e repousada. Todas essas etapas proporcionam aromas e sabores únicos a partir de conhecimentos passados de geração em geração em uma receita com mais de 100 anos que mantém processos produtivos exclusivos e que promovem características muito específicas.</p>
+
+        </div>
+      </article>
+
+      <article class="bloco-sobre invertido fade-in" style="--delay: 0.12s">
+        <div class="texto">
+          <h2>Do campo à cadeia de valor</h2>
+          <p>Com ela, criamos e incentivamos o desenvolvimento de receitas: brigadeiro, bolo, licor, cerveja, chá, drinks, enfim, muitos produtos de maior valor agregado que fazem com que ocorra uma maior valorização da matéria-prima. E assim saímos de uma cadeia produtiva e entramos em uma cadeia de valor, onde mais pessoas e empresas podem gerar renda a partir da erva-mate.</p>
+
+          <p>A intenção da Vivenda do Mate é compartilhar a riqueza do mate, levando informação e conhecimento sobre todo o processo produtivo da erva-mate e seus diferentes usos.</p>
+
+          <p>A erva-mate da Vivenda do Mate é especial porque leva em consideração o saber-fazer que atravessou gerações, mantém o cuidado constante na produção e beneficiamento a partir das Boas Práticas Agrícolas e das Boas Práticas de Fabricação. E, porque é uma erva-mate com uma granulometria que permite sua utilização em diferentes preparos como o chimarrão, o tereré, os chás, o uso na gastronomia (em pratos doces e salgados) e também para fazer drinks e coquetéis.</p>
+
+          <p>Nossa intenção também é proporcionar vivências e experiências autênticas aqui na propriedade, a partir do contato direto com a erva-mate. Queremos que cada pessoa descubra o prazer de degustar a erva-mate da Vivenda, seja nos momentos de contemplação solitária, nas receitas gastronômicas mais criativas ou nos momentos descontraídos com a família e amigos.</p>
+        </div>
+        <div class="imagem">
+          <img src="images/quem-somos1.avif" alt="Vivenda do Mate - tradição e inovação" loading="lazy">
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Formulário de Novidades -->
+  <section class="clube-cadastro">
+    <div class="container">
+      <h2>RECEBA NOVIDADES</h2>
+      <p class="cadastro-intro">Cadastre-se e fique por dentro das novidades e benefícios exclusivos da Vivenda do Mate!</p>
+      
+      <form class="form-cadastro-clube" action="#" method="POST">
+        <div class="form-row">
+          <div class="form-grupo">
+            <label for="nome-clube">nome completo *</label>
+            <input type="text" id="nome-clube" name="nome" required>
+          </div>
+          <div class="form-grupo">
+            <label for="email-clube">e-mail *</label>
+            <input type="email" id="email-clube" name="email" required>
+          </div>
+        </div>
+        
+        <div class="form-botao-container">
+          <button type="submit" class="btn-cadastrar-clube">Eu Quero!</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="largura-limitada">
+      <div class="social-icones">
+        <a href="https://www.facebook.com/vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+
+        <a href="https://www.instagram.com/vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="3"
+               stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+
+        <a href="https://www.youtube.com/@vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso youtube">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="3"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 11.75a29 29 0 0 0-.46-5.33z">
+            </path>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+          </svg>
+        </a>
+      </div>
+      <p class="copyright-texto">© 2025 Vivenda do Mate CNPJ: 40.801.747/0001-63.</p>
+    </div>
+  </footer>
+
+    <a href="#" id="chatbox-widget" aria-label="abrir chat">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+    </a>
+
+    <!-- CARRINHO LATERAL -->
+    <div class="carrinho-sidebar-overlay" id="carrinhoOverlay"></div>
+    <aside class="carrinho-sidebar" id="carrinhoSidebar">
+        <div class="carrinho-sidebar-header">
+            <h2>Meu Carrinho</h2>
+            <button class="carrinho-close-btn" id="carrinhoCloseBtn" aria-label="Fechar carrinho">&times;</button>
+        </div>
+
+        <div class="carrinho-sidebar-content" id="carrinhoContent">
+            <div class="carrinho-vazio" id="carrinhoVazio">
+                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <p>Seu carrinho está vazio</p>
+            </div>
+            <div id="carrinhoItens"></div>
+        </div>
+
+        <div class="carrinho-sidebar-footer" id="carrinhoFooter" style="display: none;">
+            <div class="carrinho-total">
+                <span class="carrinho-total-label">Total:</span>
+                <span class="carrinho-total-valor" id="carrinhoTotalValor">R$ 0,00</span>
+            </div>
+            <button class="carrinho-finalizar-btn" id="carrinhoFinalizarBtn">Finalizar Compra</button>
+        </div>
+    </aside>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

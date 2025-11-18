@@ -1,0 +1,307 @@
+/**
+ * Buttons (Botões)
+ * Estilos para todos os botões do site
+ */
+
+/* =====================================================
+   BOTÃO BASE
+   ===================================================== */
+
+button,
+.btn {
+  font-family: var(--font-principal);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all var(--transition-base) var(--ease-out);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+button:disabled,
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =====================================================
+   BOTÃO SLIDE / GERAL
+   ===================================================== */
+
+.btn-slide {
+  background-color: var(--cor-branca);
+  color: var(--cor-principal);
+  padding: 12px 30px;
+  border-radius: var(--radius-lg);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-base) var(--ease-out);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-slide:hover {
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* =====================================================
+   BOTÃO SABER MAIS
+   ===================================================== */
+
+.btn-saber-mais {
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  padding: 14px 35px;
+  border-radius: var(--radius-lg);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+  transition: all var(--transition-base) var(--ease-out);
+  box-shadow: var(--shadow-md);
+  display: inline-block;
+}
+
+.btn-saber-mais:hover {
+  background-color: var(--cor-secundaria);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* =====================================================
+   BOTÃO ENVIAR (FORMULÁRIOS)
+   ===================================================== */
+
+.btn-enviar {
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  padding: 14px 40px;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-out);
+  box-shadow: var(--shadow-sm);
+  border: none;
+}
+
+.btn-enviar:hover {
+  background-color: var(--cor-secundaria);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* =====================================================
+   BOTÃO POPUP
+   ===================================================== */
+
+.btn-popup {
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  padding: 12px 30px;
+  border-radius: var(--radius-lg);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-out);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-popup:hover {
+  background-color: var(--cor-secundaria);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* =====================================================
+   BOTÃO PRODUTO (ADICIONAR CARRINHO)
+   ===================================================== */
+
+.btn-produto,
+.btn-adicionar-carrinho {
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-out);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+}
+
+.btn-produto:hover,
+.btn-adicionar-carrinho:hover {
+  background-color: var(--cor-secundaria);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* =====================================================
+   BOTÃO PLANO (CLUBE FIDELIDADE)
+   ===================================================== */
+
+.btn-plano {
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  padding: 14px 35px;
+  border-radius: var(--radius-lg);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-out);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-plano:hover {
+  background-color: var(--cor-secundaria);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* =====================================================
+   BOTÃO PRIMARY (AÇÃO PRINCIPAL)
+   ===================================================== */
+
+.btn-primary {
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  padding: 14px 35px;
+  border-radius: var(--radius-lg);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-out);
+  box-shadow: var(--shadow-md);
+  border: 2px solid transparent;
+}
+
+.btn-primary:hover {
+  background-color: var(--cor-secundaria);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* =====================================================
+   BOTÃO EXPERIÊNCIA (TURISMO)
+   ===================================================== */
+
+.btn-experiencia {
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  padding: 12px 28px;
+  border-radius: var(--radius-lg);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-out);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-experiencia:hover {
+  background-color: var(--cor-secundaria);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* =====================================================
+   BOTÃO CONHECER (CLUBE FIDELIDADE)
+   ===================================================== */
+
+.btn-conhecer {
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  padding: 14px 32px;
+  border-radius: var(--radius-lg);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-out);
+  box-shadow: var(--shadow-md);
+  border: none;
+}
+
+.btn-conhecer:hover {
+  background-color: var(--cor-secundaria);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* =====================================================
+   BOTÃO CADASTRAR CLUBE
+   ===================================================== */
+
+.btn-cadastrar-clube {
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  padding: 14px 40px;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-out);
+  box-shadow: var(--shadow-md);
+  border: none;
+  width: 100%;
+  max-width: 400px;
+}
+
+.btn-cadastrar-clube:hover {
+  background-color: var(--cor-secundaria);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* =====================================================
+   BOTÕES DE QUANTIDADE (CARRINHO)
+   ===================================================== */
+
+.btn-qty {
+  background: rgba(0, 51, 0, 0.1);
+  border: 1px solid rgba(0, 51, 0, 0.2);
+  color: var(--cor-principal);
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  transition: all var(--transition-fast) var(--ease-out);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.btn-qty:hover {
+  background: rgba(0, 51, 0, 0.15);
+  border-color: var(--cor-principal);
+}
+
+/* =====================================================
+   RESPONSIVE - MOBILE
+   ===================================================== */
+
+@media (max-width: 900px) {
+  .btn-slide,
+  .btn-saber-mais,
+  .btn-enviar,
+  .btn-popup,
+  .btn-plano,
+  .btn-primary,
+  .btn-conhecer,
+  .btn-cadastrar-clube {
+    padding: 12px 24px;
+    font-size: var(--font-size-base);
+  }
+
+  .btn-experiencia,
+  .btn-produto,
+  .btn-adicionar-carrinho {
+    padding: 10px 20px;
+    font-size: var(--font-size-sm);
+  }
+}

@@ -1,0 +1,99 @@
+/**
+ * Footer (Rodapé)
+ * Ícones sociais e copyright
+ */
+
+/* =====================================================
+   FOOTER PRINCIPAL
+   ===================================================== */
+
+.site-footer {
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  padding: 40px 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+}
+
+.site-footer .largura-limitada {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  text-align: center;
+}
+
+/* =====================================================
+   ÍCONES SOCIAIS
+   ===================================================== */
+
+.social-icones {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.site-footer .social-icones a svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--cor-branca);
+  fill: none;
+  transition: transform var(--transition-slow) var(--ease-out),
+              stroke var(--transition-slow) var(--ease-out);
+  display: block;
+}
+
+/* Facebook icon - estilo preenchido */
+.site-footer .social-icones a svg[viewBox="0 0 24 24"][fill="currentColor"] {
+  fill: var(--cor-branca);
+  stroke: none;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.8));
+}
+
+/* Hover effects */
+.site-footer .social-icones a:hover svg {
+  transform: scale(1.15);
+  stroke: #c7c7c7;
+}
+
+.site-footer .social-icones a:hover svg[fill="currentColor"] {
+  fill: #c7c7c7;
+  stroke: none;
+}
+
+/* =====================================================
+   COPYRIGHT
+   ===================================================== */
+
+.copyright-texto {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  opacity: 0.85;
+}
+
+/* =====================================================
+   RESPONSIVE - MOBILE
+   ===================================================== */
+
+@media (max-width: 900px) {
+  .site-footer {
+    padding: 30px 0;
+  }
+
+  .social-icones {
+    gap: 20px;
+  }
+
+  .site-footer .social-icones a svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .copyright-texto {
+    font-size: 0.8rem;
+  }
+}

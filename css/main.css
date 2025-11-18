@@ -1,0 +1,110 @@
+/**
+ * VIVENDA DO MATE - CSS MODULAR
+ * Arquivo principal que importa todos os módulos
+ *
+ * Ordem de importação:
+ * 1. Base (variáveis, reset, tipografia)
+ * 2. Layout (estrutura da página)
+ * 3. Componentes (elementos reutilizáveis)
+ * 4. Utilities (classes auxiliares)
+ *
+ * Arquitetura baseada em Clean Code e Separação de Responsabilidades
+ * Cada módulo tem uma única responsabilidade bem definida
+ */
+
+/* =====================================================
+   1. BASE - FUNDAMENTOS
+   ===================================================== */
+
+/* Variáveis CSS (Custom Properties) */
+@import 'base/variables.css';
+
+/* Reset e estilos base */
+@import 'base/reset.css';
+
+/* Tipografia */
+@import 'base/typography.css';
+
+/* =====================================================
+   2. LAYOUT - ESTRUTURA DA PÁGINA
+   ===================================================== */
+
+/* Header (cabeçalho e navegação) */
+@import 'layout/header.css';
+
+/* Footer (rodapé) */
+@import 'layout/footer.css';
+
+/* =====================================================
+   3. COMPONENTS - ELEMENTOS REUTILIZÁVEIS
+   ===================================================== */
+
+/* Botões */
+@import 'components/buttons.css';
+
+/* Cards */
+@import 'components/cards.css';
+
+/* Formulários */
+@import 'components/forms.css';
+
+/* Carrosséis */
+@import 'components/carousel.css';
+
+/* Modals e Sidebars */
+@import 'components/modals.css';
+
+/* =====================================================
+   4. UTILITIES - CLASSES AUXILIARES
+   ===================================================== */
+
+/* Animações */
+@import 'utilities/animations.css';
+
+/* Classes auxiliares (helpers) */
+@import 'utilities/helpers.css';
+
+/* =====================================================
+   NOTAS DE USO
+   ===================================================== */
+
+/**
+ * COMO USAR:
+ *
+ * 1. No HTML, substitua:
+ *    <link rel="stylesheet" href="css/style.css">
+ *    Por:
+ *    <link rel="stylesheet" href="css/main.css">
+ *
+ * 2. Todas as variáveis CSS estão em base/variables.css
+ *    Exemplo de uso no CSS:
+ *    color: var(--cor-principal);
+ *    padding: var(--spacing-md);
+ *
+ * 3. Classes utilitárias disponíveis em utilities/helpers.css
+ *    Exemplo de uso no HTML:
+ *    <div class="flex items-center gap-md p-lg">
+ *
+ * 4. Para modificar estilos:
+ *    - Identifique o módulo correto (header, buttons, cards, etc.)
+ *    - Edite apenas o arquivo específico
+ *    - Mantenha a responsabilidade única de cada módulo
+ *
+ * BENEFÍCIOS DA ARQUITETURA MODULAR:
+ *
+ * ✓ Manutenibilidade: Fácil encontrar e modificar estilos
+ * ✓ Escalabilidade: Adicionar novos módulos sem afetar existentes
+ * ✓ Reusabilidade: Componentes podem ser reutilizados
+ * ✓ Organização: Código limpo e bem estruturado
+ * ✓ Performance: Carrega apenas o necessário (com bundler)
+ * ✓ Colaboração: Múltiplos desenvolvedores podem trabalhar juntos
+ *
+ * COMPATIBILIDADE:
+ *
+ * @import funciona nativamente em todos os browsers modernos
+ * Para browsers antigos, considere usar um bundler como:
+ * - PostCSS
+ * - Sass/SCSS
+ * - Webpack
+ * - Vite
+ */

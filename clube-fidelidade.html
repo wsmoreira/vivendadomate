@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Clube Fidelidade – Vivenda do Mate</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- HEADER PADRÃO (MOKA STYLE) -->
+  <header>
+    <div class="header-container">
+      <div class="header-logo">
+        <a href="./index.html"><img src="./images/logomarca.png" alt="Vivenda do Mate"></a>
+      </div>
+
+      <nav>
+        <ul class="menu-principal">
+          <li>
+            <a href="#">Sobre</a>
+            <ul class="submenu">
+              <li><a href="quem-somos.html">Quem somos</a></li>
+              <li><a href="nossa-producao.html">Nossa produção</a></li>
+              <li><a href="etapas-producao.html">Etapas da produção</a></li>
+              <li><a href="indicacao-geografica.html">Indicação Geográfica</a></li>
+            </ul>
+          </li>
+
+        <li>
+          <a href="#">Turismo</a>
+          <ul class="submenu">
+            <li><a href="turismo.html">Passeios & Experiências</a></li>
+            <li><a href="atividades.html">Camping</a></li>
+          </ul>
+        </li>          <li>
+            <a href="receitas.html">Receitas</a>
+          </li>
+
+          <li>
+            <a href="loja.html">Loja</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-icones">
+        <a href="#" class="icone-link" aria-label="minha conta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+
+        <a href="#" class="icone-link icone-carrinho" aria-label="carrinho de compras">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="carrinho-contador">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container main-content" id="main-clube" role="main">
+    
+    <!-- Hero Section -->
+    <section class="clube-hero fade-in">
+      <h1>Clube Fidelidade</h1>
+    </section>
+
+    <!-- Benefícios do Assinante -->
+    <section class="beneficios-assinante fade-in">
+      <h2>Benefícios do Assinante</h2>
+      <div class="beneficios-grid">
+        <div class="beneficio-card">
+          <div class="beneficio-icone">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <h3>Atendimento Prioritário</h3>
+          <p>Tenha atendimento prioritário via WhatsApp com nossa equipe especializada</p>
+        </div>
+
+        <div class="beneficio-card">
+          <div class="beneficio-icone">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+          </div>
+          <h3>Frete Especial</h3>
+          <p>Condições diferenciadas de frete e entrega para assinantes</p>
+        </div>
+
+        <div class="beneficio-card">
+          <div class="beneficio-icone">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <h3>Descontos Exclusivos</h3>
+          <p>Até 20% de desconto em produtos e lançamentos exclusivos para membros</p>
+        </div>
+
+        <div class="beneficio-card">
+          <div class="beneficio-icone">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <h3>Sem Fidelidade</h3>
+          <p>Cancele quando quiser, sem surpresas e sem taxas extras</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Níveis do Clube -->
+    <section class="tipos-planos fade-in">
+      <h2>Níveis do Clube Fidelidade</h2>
+      <p class="planos-intro">Acumule pontos em cada compra e suba de nível para desbloquear benefícios exclusivos</p>
+      
+      <div class="planos-container">
+        
+        <!-- Nível Bronze -->
+        <article class="plano-item nivel-bronze">
+          <div class="plano-badge bronze">Bronze</div>
+          <div class="plano-header">
+            <h3>Nível Bronze</h3>
+            <p class="plano-descricao">A partir da primeira compra</p>
+          </div>
+          <div class="plano-content">
+            <div class="plano-pontos">
+              <strong>Acúmulo:</strong>
+              <p class="pontos-info">1 ponto a cada R$ 1,00 gasto</p>
+            </div>
+            <div class="plano-opcoes">
+              <strong>Benefícios:</strong>
+              <ul>
+                <li>5% de desconto em compras</li>
+                <li>Acesso antecipado a promoções</li>
+                <li>Newsletter exclusiva</li>
+                <li>Frete grátis acima de R$ 150</li>
+                <li>Pontos em todas as compras</li>
+              </ul>
+            </div>
+            <a href="#cadastro" class="btn-conhecer">Começar Agora</a>
+          </div>
+        </article>
+
+        <!-- Nível Prata -->
+        <article class="plano-item destaque nivel-prata">
+          <div class="plano-badge prata">Prata</div>
+          <div class="plano-header">
+            <h3>Nível Prata</h3>
+            <p class="plano-descricao">A partir de 500 pontos acumulados</p>
+          </div>
+          <div class="plano-content">
+            <div class="plano-pontos">
+              <strong>Acúmulo:</strong>
+              <p class="pontos-info">1,5 pontos a cada R$ 1,00 gasto</p>
+            </div>
+            <div class="plano-opcoes">
+              <strong>Benefícios:</strong>
+              <ul>
+                <li>10% de desconto em compras</li>
+                <li>Todos os benefícios Bronze</li>
+                <li>Brinde no aniversário</li>
+                <li>Frete grátis acima de R$ 100</li>
+                <li>Produtos exclusivos</li>
+                <li>Descontos especiais</li>
+              </ul>
+            </div>
+            <a href="#cadastro" class="btn-conhecer">Subir de Nível</a>
+          </div>
+        </article>
+
+        <!-- Nível Ouro -->
+        <article class="plano-item nivel-ouro">
+          <div class="plano-badge ouro">Ouro</div>
+          <div class="plano-header">
+            <h3>Nível Ouro</h3>
+            <p class="plano-descricao">A partir de 1500 pontos acumulados</p>
+          </div>
+          <div class="plano-content">
+            <div class="plano-pontos">
+              <strong>Acúmulo:</strong>
+              <p class="pontos-info">2 pontos a cada R$ 1,00 gasto</p>
+            </div>
+            <div class="plano-opcoes">
+              <strong>Benefícios:</strong>
+              <ul>
+                <li>15% de desconto em compras</li>
+                <li>Todos os benefícios Prata</li>
+                <li>Box exclusiva trimestral</li>
+                <li>Frete grátis sem mínimo</li>
+                <li>Visita guiada à propriedade</li>
+                <li>Atendimento prioritário</li>
+              </ul>
+            </div>
+            <a href="#cadastro" class="btn-conhecer">Alcançar Ouro</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Vantagens Exclusivas -->
+    <section class="vantagens-extras fade-in">
+      <h2>Vantagens Exclusivas do Clube</h2>
+      <div class="vantagens-grid">
+        <div class="vantagem-item">
+          <div class="vantagem-icone">🎁</div>
+          <h3>Brindes Especiais</h3>
+          <p>Presentes surpresa em datas comemorativas e no seu aniversário</p>
+        </div>
+        <div class="vantagem-item">
+          <div class="vantagem-icone">📦</div>
+          <h3>Produtos Exclusivos</h3>
+          <p>Acesso prioritário a lançamentos e micro-lotes especiais</p>
+        </div>
+        <div class="vantagem-item">
+          <div class="vantagem-icone">🌿</div>
+          <h3>Experiências Únicas</h3>
+          <p>Convites para visitas à propriedade e degustações exclusivas</p>
+        </div>
+        <div class="vantagem-item">
+          <div class="vantagem-icone">⭐</div>
+          <h3>Conteúdo Premium</h3>
+          <p>Receitas exclusivas, dicas de preparo e história da erva-mate</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-produto fade-in">
+      <h2>Perguntas Frequentes</h2>
+
+      <details>
+        <summary>Como funciona a assinatura do Clube?</summary>
+        <p>Você escolhe o plano que mais combina com você e recebe mensalmente produtos selecionados 
+        da Vivenda do Mate. A assinatura é renovada automaticamente, mas você pode cancelar quando quiser.</p>
+      </details>
+
+      <details>
+        <summary>Posso pausar minha assinatura?</summary>
+        <p>Sim! Você pode pausar sua assinatura por até 3 meses. Basta entrar em contato com nossa equipe 
+        através do WhatsApp ou e-mail.</p>
+      </details>
+
+      <details>
+        <summary>Como funcionam os descontos?</summary>
+        <p>Assinantes do Clube têm descontos progressivos: 10% em compras avulsas, 15% em produtos especiais 
+        e 20% em lançamentos exclusivos.</p>
+      </details>
+
+      <details>
+        <summary>Posso trocar ou cancelar meu plano?</summary>
+        <p>Sim! Você pode alterar seu plano ou cancelar a qualquer momento, sem multas ou taxas de cancelamento. 
+        Basta avisar até 5 dias antes da próxima cobrança.</p>
+      </details>
+
+      <details>
+        <summary>Quando recebo minha primeira entrega?</summary>
+        <p>A primeira entrega é realizada em até 7 dias úteis após a confirmação do pagamento. As próximas 
+        entregas seguem o ciclo mensal escolhido por você.</p>
+      </details>
+
+    </section>
+
+  </main>
+
+  <!-- Formulário de Cadastro - Fora do container -->
+  <section class="clube-cadastro fade-in" id="cadastro">
+    <div class="container">
+      <h2>RECEBA NOVIDADES</h2>
+      <p class="cadastro-intro">Cadastre-se e fique por dentro das novidades e benefícios exclusivos do Clube Fidelidade!</p>
+      
+      <form class="form-cadastro-clube" action="#" method="POST">
+        <div class="form-row">
+          <div class="form-grupo">
+            <label for="nome-clube">nome completo *</label>
+            <input type="text" id="nome-clube" name="nome" required>
+          </div>
+          <div class="form-grupo">
+            <label for="email-clube">e-mail *</label>
+            <input type="email" id="email-clube" name="email" required>
+          </div>
+        </div>
+        
+        <div class="form-botao-container">
+          <button type="submit" class="btn-cadastrar-clube">Eu Quero!</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="largura-limitada">
+      <div class="social-icones">
+        <a href="https://www.facebook.com/vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+
+        <a href="https://www.instagram.com/vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+
+        <a href="https://www.youtube.com/@vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso youtube">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 11.75a29 29 0 0 0-.46-5.33z">
+            </path>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+          </svg>
+        </a>
+      </div>
+
+      <p class="copyright-texto">
+        © 2025 Vivenda do Mate CNPJ: 40.801.747/0001-63.
+      </p>
+    </div>
+  </footer>
+
+    <a href="#" id="chatbox-widget" aria-label="abrir chat">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+    </a>
+
+    <!-- CARRINHO LATERAL -->
+    <div class="carrinho-sidebar-overlay" id="carrinhoOverlay"></div>
+    <aside class="carrinho-sidebar" id="carrinhoSidebar">
+        <div class="carrinho-sidebar-header">
+            <h2>Meu Carrinho</h2>
+            <button class="carrinho-close-btn" id="carrinhoCloseBtn" aria-label="Fechar carrinho">&times;</button>
+        </div>
+
+        <div class="carrinho-sidebar-content" id="carrinhoContent">
+            <div class="carrinho-vazio" id="carrinhoVazio">
+                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <p>Seu carrinho está vazio</p>
+            </div>
+            <div id="carrinhoItens"></div>
+        </div>
+
+        <div class="carrinho-sidebar-footer" id="carrinhoFooter" style="display: none;">
+            <div class="carrinho-total">
+                <span class="carrinho-total-label">Total:</span>
+                <span class="carrinho-total-valor" id="carrinhoTotalValor">R$ 0,00</span>
+            </div>
+            <button class="carrinho-finalizar-btn" id="carrinhoFinalizarBtn">Finalizar Compra</button>
+        </div>
+    </aside>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

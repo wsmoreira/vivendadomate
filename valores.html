@@ -1,0 +1,1093 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Nossos Produtos – Vivenda do Mate</title>
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* =====================================================
+       RESET E VARIÁVEIS - ESTILO MOKA CLUBE
+       ===================================================== */
+    :root {
+      --cor-principal: #003300;
+      --cor-verde-escuro: #002200;
+      --cor-texto: #373435;
+      --cor-branca: white;
+      --max-width: 1600px; /* MAIS LARGO - Estilo Moka */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--cor-texto);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header is handled by global stylesheet (css/style.css) to keep header, logo and menu behavior consistent across pages. */
+
+   /* main layout is provided by the global stylesheet; this page uses
+     <main class="container main-content"> so we keep layout consistent */
+
+    h1 {
+      text-align: center;
+      color: var(--cor-principal);
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* =====================================================
+       FILTROS - ESTILO MOKA
+       ===================================================== */
+    .filtros-produtos {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 50px 0;
+    }
+
+    .filtro-btn {
+      padding: 14px 32px;
+      border: none;
+      background: #f5f5f5;
+      color: #333;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .filtro-btn:hover {
+      background: #e8e8e8;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .filtro-btn.ativo {
+      background: var(--cor-principal);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(0,51,0,0.3);
+    }
+
+    /* =====================================================
+       GRID DE PRODUTOS - MAIS LARGO
+       ===================================================== */
+    .produtos-grid {
+      display: grid;
+      /* Forçar 3 colunas em telas largas (como Moka) */
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px; /* espaçamento similar ao referenciado */
+      margin: 60px 0;
+      align-items: start;
+    }
+
+    /* =====================================================
+       CARD DO PRODUTO
+       ===================================================== */
+    .produto-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      /* cards com altura igual e conteúdo alinhado */
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .produto-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    }
+
+    /* Área da Imagem - AINDA MAIS LARGA */
+    .produto-imagem {
+      position: relative;
+      width: 100%;
+      /* Ajuste para que as imagens tenham proporção mais próxima ao exemplo Moka */
+      height: 420px;
+      overflow: hidden;
+      background: #f8f8f8;
+    }
+
+    .produto-imagem img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    /* Imagem desaparece no hover */
+    .produto-card:hover .produto-imagem img {
+      opacity: 0;
+      transform: scale(1.1);
+    }
+
+    /* Badge */
+    .produto-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--cor-principal);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 25px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 2;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+
+    .produto-badge.premium {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #333;
+    }
+
+    .produto-badge.organico {
+      background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    }
+
+    .produto-badge.novidade {
+      background: linear-gradient(135deg, #FF6B6B, #EE5A6F);
+    }
+
+    /* =====================================================
+       OVERLAY - VERDE COM TEXTO BRANCO
+       ===================================================== */
+    .produto-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #003300;
+      /* layout em coluna e espaçamento entre elementos para
+         garantir que o botão 'Ver Detalhes' fique sempre alinhado
+         na mesma posição (embaixo) mesmo com descrições de tamanhos diferentes */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 35px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      color: #fff;
+      text-align: center;
+    }
+
+    .produto-card:hover .produto-overlay {
+      opacity: 1;
+    }
+
+    /* Hide the badge smoothly when overlay is active so it doesn't overlap text */
+    .produto-card:hover .produto-badge {
+      opacity: 0;
+      transform: translateY(-8px) scale(0.98);
+      pointer-events: none;
+    }
+
+    .overlay-titulo {
+      font-size: 1.6rem; /* MAIOR */
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .overlay-descricao {
+      font-size: 1.1rem; /* MAIOR */
+      line-height: 1.8; /* MAIS ESPAÇADO */
+      /* ocupar espaço disponível para empurrar o botão para baixo */
+      flex: 1 1 auto;
+      margin: 0 0 18px 0;
+      color: #fff !important; /* garantir branco mesmo com estilos conflitantes */
+      max-width: 90%;
+    }
+
+    .overlay-detalhes {
+      /* ocultar os "badges" dentro do overlay conforme solicitado */
+      display: none;
+    }
+
+    .detalhe-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.25);
+      padding: 11px 20px;
+      border-radius: 25px;
+      font-size: 1rem;
+      backdrop-filter: blur(10px);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .detalhe-icon {
+      font-size: 1.4rem;
+    }
+
+    .btn-ver-mais {
+      background: #fff;
+      color: #003300;
+      padding: 15px 40px;
+      border-radius: 30px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      /* centralizar e garantir posição consistente */
+      align-self: center;
+      margin-top: 0;
+    }
+
+    .btn-ver-mais:hover {
+      background: #f0f0f0;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    /* =====================================================
+       INFO DO PRODUTO (Abaixo da imagem)
+       ===================================================== */
+    .produto-info {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+    }
+
+    /* Remover a linha de observações/peso abaixo do nome do produto
+       (informação continua visível no overlay ao passar o mouse) */
+    .produto-peso {
+      display: none;
+    }
+
+    .produto-info h3 {
+      color: var(--cor-principal);
+      margin: 0 0 8px 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .produto-peso {
+      color: #888;
+      font-size: 0.95rem;
+      margin: 0 0 15px 0;
+      font-weight: 500;
+    }
+
+    .produto-descricao-curta {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      display: -webkit-box;
+      line-clamp: 2;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .produto-preco {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+      padding-top: 15px;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .preco-atual {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--cor-principal);
+      line-height: 1;
+    }
+
+    .economia-badge {
+      background: #E8F5E9;
+      color: #2E7D32;
+      padding: 6px 14px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .btn-adicionar {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      background: var(--cor-principal);
+      color: #fff;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      margin-top: 5px;
+      box-shadow: 0 4px 15px rgba(0,51,0,0.2);
+      /* empurra o botão para o final da coluna para alinhamento */
+      margin-top: auto;
+    }
+
+    .btn-adicionar:hover {
+      background: #004d00;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,51,0,0.3);
+    }
+
+    /* =====================================================
+       INFO DE COMPRA
+       ===================================================== */
+    .info-compra {
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      padding: 60px 40px;
+      border-radius: 20px;
+      margin: 80px 0 60px;
+    }
+
+    .info-compra h2 {
+      text-align: center;
+      color: var(--cor-principal);
+      margin-bottom: 45px;
+      font-size: 2rem;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .info-item {
+      background: #fff;
+      padding: 35px 25px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+    }
+
+    .info-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .info-item h3 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .info-item h4 {
+      color: var(--cor-principal);
+      margin: 10px 0;
+      font-size: 1.2rem;
+    }
+
+    .info-item p {
+      color: #666;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+    .site-footer {
+      background: var(--cor-principal);
+      color: var(--cor-branca);
+      padding: 40px 0;
+      text-align: center;
+      margin-top: 0; /* removed large top margin so contato-secao sits flush */
+    }
+
+    .site-footer .largura-limitada {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    .social-icones {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .social-icones a {
+      color: var(--cor-branca);
+      transition: opacity 0.3s;
+    }
+
+    .social-icones a:hover {
+      opacity: 0.7;
+    }
+
+    .social-icones svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--cor-branca);
+      fill: none;
+    }
+
+    .copyright-texto {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+    }
+
+    /* =====================================================
+       ANIMAÇÕES
+       ===================================================== */
+    .fade-in {
+      /* Slide in from left to right (staggered by JS) */
+      opacity: 0;
+      transform: translateX(-28px);
+      transition: opacity 0.6s ease-out var(--delay, 0s), transform 0.6s ease-out var(--delay, 0s);
+      will-change: opacity, transform;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* =====================================================
+       RESPONSIVIDADE
+       ===================================================== */
+    @media (max-width: 1200px) {
+      .header-container,
+      main,
+      .site-footer .largura-limitada {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+
+      /* Em telas médias, reduzir para 2 colunas para manter legibilidade */
+      .produtos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .header-container,
+      main,
+      .site-footer .largura-limitada {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .menu-principal {
+        gap: 20px;
+      }
+
+      .menu-principal > li > a {
+        font-size: 0.85rem;
+      }
+
+      .produtos-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .produto-imagem {
+        height: 380px;
+      }
+
+      .overlay-titulo {
+        font-size: 1.4rem;
+      }
+
+      .overlay-descricao {
+        font-size: 1rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header-icones {
+        gap: 15px;
+      }
+
+      .produto-imagem {
+        height: 320px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER ESTILO MOKA -->
+  <header>
+    <div class="largura-limitada">
+      <!-- Logo com espaço -->
+      <div class="header-logo">
+        <a href="./index.html">
+          <img src="./images/logomarca.png" alt="Vivenda do Mate">
+        </a>
+      </div>
+
+      <!-- Menu Centralizado -->
+      <nav>
+        <ul class="menu-principal">
+          <li>
+            <a href="#">Sobre</a>
+            <ul class="submenu">
+              <li><a href="quem-somos.html">Quem somos</a></li>
+              <li><a href="nossa-producao.html">Nossa produção</a></li>
+              <li><a href="etapas-producao.html">Etapas da produção</a></li>
+              <li><a href="indicacao-geografica.html">Indicação Geográfica</a></li>
+            </ul>
+          </li>
+
+        <li>
+          <a href="#">Turismo</a>
+          <ul class="submenu">
+            <li><a href="turismo.html">Passeios & Experiências</a></li>
+            <li><a href="atividades.html">Camping</a></li>
+          </ul>
+        </li>          <li>
+            <a href="receitas.html">Receitas</a>
+          </li>
+
+          <li>
+            <a href="loja.html">Loja</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Ícones com espaço -->
+      <div class="header-icones">
+        <a href="#" class="icone-link" aria-label="minha conta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+
+        <a href="#" class="icone-link icone-carrinho" aria-label="carrinho de compras">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="carrinho-contador">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container main-content">
+    <h1>Nossos Produtos</h1>
+    <p class="intro">
+      Descubra a linha completa de produtos Vivenda do Mate. Erva-mate de qualidade superior, 
+      cultivada com tradição e cuidado em cada etapa.
+    </p>
+
+    <!-- Filtros -->
+    <div class="filtros-produtos">
+      <button class="filtro-btn ativo" data-categoria="todos">Todos</button>
+      <button class="filtro-btn" data-categoria="tradicional">Tradicional</button>
+      <button class="filtro-btn" data-categoria="especial">Especiais</button>
+      <button class="filtro-btn" data-categoria="organico">Orgânicos</button>
+      <button class="filtro-btn" data-categoria="terere">Tereré</button>
+    </div>
+
+    <!-- Grid de Produtos -->
+    <div class="produtos-grid">
+      
+      <!-- Produto 1 -->
+      <article class="produto-card fade-in" data-categoria="tradicional">
+        <div class="produto-imagem">
+          <img src="./images/Loja1.png" alt="Erva-Mate Tradicional 500g" loading="lazy">
+          <span class="produto-badge">Mais Vendido</span>
+          
+          <div class="produto-overlay">
+            <h4 class="overlay-titulo">Erva-Mate Tradicional</h4>
+            <p class="overlay-descricao">Sabor autêntico e equilibrado, perfeita para o chimarrão tradicional. Produzida com folhas selecionadas e moagem balanceada.</p>
+            <div class="overlay-detalhes">
+              <span class="detalhe-item">
+                <span class="detalhe-icon">🌿</span>
+                Natural
+              </span>
+              <span class="detalhe-item">
+                <span class="detalhe-icon">⭐</span>
+                Premium
+              </span>
+              <span class="detalhe-item">
+                <span class="detalhe-icon">📦</span>
+                500g
+              </span>
+            </div>
+            <a href="#" class="btn-ver-mais">Ver Detalhes</a>
+          </div>
+        </div>
+        <div class="produto-info">
+          <h3>Erva-Mate Tradicional</h3>
+          <p class="produto-peso">500g</p>
+          <p class="produto-descricao-curta">
+            Sabor autêntico e equilibrado, perfeita para o chimarrão do dia a dia.
+          </p>
+          <div class="produto-preco">
+            <span class="preco-atual">R$ 24,90</span>
+          </div>
+          <button class="btn-adicionar" data-produto="Erva-Mate Tradicional 500g" data-preco="24.90">
+            Adicionar ao Carrinho
+          </button>
+        </div>
+      </article>
+
+      <!-- Produto 2 -->
+      <article class="produto-card fade-in" data-categoria="tradicional">
+        <div class="produto-imagem">
+          <img src="./images/Loja2.png" alt="Erva-Mate Tradicional 1kg" loading="lazy">
+          
+          <div class="produto-overlay">
+            <h4 class="overlay-titulo">Erva-Mate Tradicional 1kg</h4>
+            <p class="overlay-descricao">Embalagem econômica para quem não abre mão do chimarrão. Mesma qualidade premium em maior quantidade.</p>
+            <div class="overlay-detalhes">
+              <span class="detalhe-item">
+                <span class="detalhe-icon">💰</span>
+                Econômico
+              </span>
+              <span class="detalhe-item">
+                <span class="detalhe-icon">📦</span>
+                1kg
+              </span>
+            </div>
+            <a href="#" class="btn-ver-mais">Ver Detalhes</a>
+          </div>
+        </div>
+        <div class="produto-info">
+          <h3>Erva-Mate Tradicional</h3>
+          <p class="produto-peso">1kg</p>
+          <p class="produto-descricao-curta">
+            Embalagem econômica para quem não abre mão do chimarrão.
+          </p>
+          <div class="produto-preco">
+            <span class="preco-atual">R$ 44,90</span>
+            <span class="economia-badge">Economize 10%</span>
+          </div>
+          <button class="btn-adicionar" data-produto="Erva-Mate Tradicional 1kg" data-preco="44.90">
+            Adicionar ao Carrinho
+          </button>
+        </div>
+      </article>
+
+      <!-- Produto 3 -->
+      <article class="produto-card fade-in" data-categoria="especial">
+        <div class="produto-imagem">
+          <img src="./images/chimarrao-receitas.avif" alt="Erva-Mate Premium" loading="lazy">
+          <span class="produto-badge premium">Premium</span>
+          
+          <div class="produto-overlay">
+            <h4 class="overlay-titulo">Erva-Mate Premium Sombreada</h4>
+            <p class="overlay-descricao">Cultivada à sombra das araucárias nativas. Sabor suave, refinado e menos amargo. Experiência única para paladares exigentes.</p>
+            <div class="overlay-detalhes">
+              <span class="detalhe-item">
+                <span class="detalhe-icon">🌳</span>
+                Sombreada
+              </span>
+              <span class="detalhe-item">
+                <span class="detalhe-icon">✨</span>
+                Suave
+              </span>
+              <span class="detalhe-item">
+                <span class="detalhe-icon">👑</span>
+                Premium
+              </span>
+            </div>
+            <a href="#" class="btn-ver-mais">Ver Detalhes</a>
+          </div>
+        </div>
+        <div class="produto-info">
+          <h3>Erva-Mate Premium Sombreada</h3>
+          <p class="produto-peso">500g</p>
+          <p class="produto-descricao-curta">
+            Cultivada à sombra das araucárias, sabor suave e refinado.
+          </p>
+          <div class="produto-preco">
+            <span class="preco-atual">R$ 39,90</span>
+          </div>
+          <button class="btn-adicionar" data-produto="Erva-Mate Premium 500g" data-preco="39.90">
+            Adicionar ao Carrinho
+          </button>
+        </div>
+      </article>
+
+      <!-- Produto 4 -->
+      <article class="produto-card fade-in" data-categoria="organico especial">
+        <div class="produto-imagem">
+          <img src="./images/Presente-chimarão.png" alt="Erva-Mate Orgânica" loading="lazy">
+          <span class="produto-badge organico">Orgânico</span>
+          
+          <div class="produto-overlay">
+            <h4 class="overlay-titulo">Erva-Mate Orgânica Certificada</h4>
+            <p class="overlay-descricao">100% orgânica com certificação IBD. Sem agrotóxicos, cultivada de forma sustentável respeitando o meio ambiente e sua saúde.</p>
+            <div class="overlay-detalhes">
+              <span class="detalhe-item">
+                <span class="detalhe-icon">🍃</span>
+                Orgânico
+              </span>
+              <span class="detalhe-item">
+                <span class="detalhe-icon">✅</span>
+                Certificado
+              </span>
+              <span class="detalhe-item">
+                <span class="detalhe-icon">🌱</span>
+                Sustentável
+              </span>
+            </div>
+            <a href="#" class="btn-ver-mais">Ver Detalhes</a>
+          </div>
+        </div>
+        <div class="produto-info">
+          <h3>Erva-Mate Orgânica Certificada</h3>
+          <p class="produto-peso">500g</p>
+          <p class="produto-descricao-curta">
+            100% orgânica, sem agrotóxicos. Certificação IBD.
+          </p>
+          <div class="produto-preco">
+            <span class="preco-atual">R$ 34,90</span>
+          </div>
+          <button class="btn-adicionar" data-produto="Erva-Mate Orgânica 500g" data-preco="34.90">
+            Adicionar ao Carrinho
+          </button>
+        </div>
+      </article>
+
+      <!-- Produto 5 -->
+      <article class="produto-card fade-in" data-categoria="terere">
+        <div class="produto-imagem">
+          <img src="./images/terere.avif" alt="Erva para Tereré" loading="lazy">
+          
+          <div class="produto-overlay">
+            <h4 class="overlay-titulo">Erva-Mate para Tereré</h4>
+            <p class="overlay-descricao">Moagem especial desenvolvida para tereré. Refrescante, saborosa e perfeita para dias quentes. Ideal com sucos cítricos.</p>
+            <div class="overlay-detalhes">
+              <span class="detalhe-item">
+                <span class="detalhe-icon">❄️</span>
+                Gelado
+              </span>
+              <span class="detalhe-item">
+                <span class="detalhe-icon">🍋</span>
+                Refrescante
+              </span>
+            </div>
+            <a href="#" class="btn-ver-mais">Ver Detalhes</a>
+          </div>
+        </div>
+        <div class="produto-info">
+          <h3>Erva-Mate para Tereré</h3>
+          <p class="produto-peso">500g</p>
+          <p class="produto-descricao-curta">
+            Moagem especial para tereré, refrescante e saboroso.
+          </p>
+          <div class="produto-preco">
+            <span class="preco-atual">R$ 26,90</span>
+          </div>
+          <button class="btn-adicionar" data-produto="Erva para Tereré 500g" data-preco="26.90">
+            Adicionar ao Carrinho
+          </button>
+        </div>
+      </article>
+
+      <!-- Produto 6 -->
+      <article class="produto-card fade-in" data-categoria="especial">
+        <div class="produto-imagem">
+          <img src="./images/cha-receitas.avif" alt="Erva Composta" loading="lazy">
+          
+          <div class="produto-overlay">
+            <h4 class="overlay-titulo">Erva Composta com Ervas Naturais</h4>
+            <p class="overlay-descricao">Blend exclusivo de erva-mate com hortelã, camomila e cidreira. Experiência aromática e relaxante para seu chimarrão.</p>
+            <div class="overlay-detalhes">
+              <span class="detalhe-item">
+                <span class="detalhe-icon">🌿</span>
+                Blend
+              </span>
+              <span class="detalhe-item">
+                <span class="detalhe-icon">💚</span>
+                Aromático
+              </span>
+            </div>
+            <a href="#" class="btn-ver-mais">Ver Detalhes</a>
+          </div>
+        </div>
+        <div class="produto-info">
+          <h3>Erva Composta com Ervas Naturais</h3>
+          <p class="produto-peso">500g</p>
+          <p class="produto-descricao-curta">
+            Mix de erva-mate com hortelã, camomila e cidreira.
+          </p>
+          <div class="produto-preco">
+            <span class="preco-atual">R$ 29,90</span>
+          </div>
+          <button class="btn-adicionar" data-produto="Erva Composta 500g" data-preco="29.90">
+            Adicionar ao Carrinho
+          </button>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Info de Compra -->
+    <div class="info-compra">
+      <h2>Informações sobre Compra e Entrega</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <h3>🚚</h3>
+          <h4>Frete Grátis</h4>
+          <p>Para compras acima de R$ 150,00 enviamos para todo o Brasil sem custo adicional</p>
+        </div>
+        <div class="info-item">
+          <h3>💳</h3>
+          <h4>Pagamento Seguro</h4>
+          <p>Aceitamos cartão de crédito, PIX e boleto bancário com total segurança</p>
+        </div>
+        <div class="info-item">
+          <h3>📦</h3>
+          <h4>Entrega Rápida</h4>
+          <p>Até 7 dias úteis para região Sul e 15 dias para demais regiões do Brasil</p>
+        </div>
+        <div class="info-item">
+          <h3>✅</h3>
+          <h4>Satisfação Garantida</h4>
+          <p>Devolução gratuita em até 30 dias se não ficar satisfeito com o produto</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SEÇÃO DE NEWSLETTER -->
+  <section class="clube-cadastro">
+    <div class="container">
+      <h2>RECEBA NOVIDADES</h2>
+      <p class="cadastro-intro">
+        Cadastre-se e fique por dentro das novidades e benefícios exclusivos da Vivenda do Mate!
+      </p>
+      <form class="form-cadastro-clube" action="#" method="POST">
+        <div class="form-row">
+          <div class="form-grupo">
+            <label for="cadastro-nome">nome completo</label>
+            <input type="text" id="cadastro-nome" name="nome" required>
+          </div>
+          <div class="form-grupo">
+            <label for="cadastro-email">e-mail</label>
+            <input type="email" id="cadastro-email" name="email" required>
+          </div>
+        </div>
+        <div class="form-grupo form-botao-container">
+          <button type="submit" class="btn-cadastrar-clube">Eu Quero!</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="largura-limitada">
+      <div class="social-icones">
+        <a href="https://www.facebook.com/vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+
+        <a href="https://www.instagram.com/vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="3"
+               stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+
+        <a href="https://www.youtube.com/@vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso youtube">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="3"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 11.75a29 29 0 0 0-.46-5.33z"></path>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+          </svg>
+        </a>
+      </div>
+
+      <p class="copyright-texto">
+        © 2025 Vivenda do Mate CNPJ: 40.801.747/0001-63.
+      </p>
+    </div>
+  </footer>
+
+    <a href="#" id="chatbox-widget" aria-label="abrir chat">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+    </a>
+
+    <!-- CARRINHO LATERAL -->
+    <div class="carrinho-sidebar-overlay" id="carrinhoOverlay"></div>
+    <aside class="carrinho-sidebar" id="carrinhoSidebar">
+        <div class="carrinho-sidebar-header">
+            <h2>Meu Carrinho</h2>
+            <button class="carrinho-close-btn" id="carrinhoCloseBtn" aria-label="Fechar carrinho">&times;</button>
+        </div>
+
+        <div class="carrinho-sidebar-content" id="carrinhoContent">
+            <div class="carrinho-vazio" id="carrinhoVazio">
+                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <p>Seu carrinho está vazio</p>
+            </div>
+            <div id="carrinhoItens"></div>
+        </div>
+
+        <div class="carrinho-sidebar-footer" id="carrinhoFooter" style="display: none;">
+            <div class="carrinho-total">
+                <span class="carrinho-total-label">Total:</span>
+                <span class="carrinho-total-valor" id="carrinhoTotalValor">R$ 0,00</span>
+            </div>
+            <button class="carrinho-finalizar-btn" id="carrinhoFinalizarBtn">Finalizar Compra</button>
+        </div>
+    </aside>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Filtros
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filtro-btn');
+      const productCards = document.querySelectorAll('.produto-card');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          filterButtons.forEach(btn => btn.classList.remove('ativo'));
+          this.classList.add('ativo');
+
+          const categoria = this.getAttribute('data-categoria');
+
+          productCards.forEach(card => {
+            if (categoria === 'todos' || card.getAttribute('data-categoria').includes(categoria)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Add to cart
+      const addButtons = document.querySelectorAll('.btn-adicionar');
+      addButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const card = this.closest('.produto-card');
+          const nome = card.querySelector('h3').textContent;
+          const precoEl = card.querySelector('.preco-atual');
+          const preco = precoEl ? precoEl.textContent : 'R$ 0,00';
+          const imagem = card.querySelector('img') ? card.querySelector('img').src : '';
+          const peso = card.querySelector('.produto-peso') ? card.querySelector('.produto-peso').textContent : '500g';
+          const produtoId = card.dataset.produtoId || Date.now();
+
+          // Adicionar ao carrinho usando a API global
+          if (window.VivendaCarrinho) {
+            window.VivendaCarrinho.adicionar({
+              id: produtoId,
+              nome: nome,
+              preco: preco,
+              imagem: imagem,
+              gramagem: peso,
+              quantidade: 1
+            });
+          }
+
+          this.textContent = '✓ Adicionado!';
+          this.style.background = '#2E7D32';
+
+          setTimeout(() => {
+            this.textContent = 'Adicionar ao Carrinho';
+            this.style.background = '';
+          }, 2000);
+        });
+      });
+    });
+  </script>
+
+  <!-- QUICK VIEW / SIDE DRAWER -->
+  <div id="quickView" class="quickview" aria-hidden="true">
+    <div class="quickview-backdrop" tabindex="-1"></div>
+    <aside class="quickview-panel" role="dialog" aria-hidden="true" aria-label="Visão rápida do produto">
+      <button class="quickview-close" aria-label="Fechar">×</button>
+      <div class="qv-img-wrap"><img class="qv-img" src="" alt="imagem do produto"></div>
+      <div class="qv-meta">
+        <div class="qv-title">Título do Produto</div>
+        <div class="qv-price">R$ 0,00</div>
+      </div>
+
+      <div class="qv-controls">
+        <label>
+          Gramagem
+          <select id="qv-gramagem" aria-label="Selecione a gramagem">
+          </select>
+        </label>
+
+        <label>
+          Quantidade
+          <input id="qv-quantidade" type="number" min="1" value="1" aria-label="Quantidade">
+        </label>
+
+        <button class="qv-addtocart">Adicionar ao Carrinho</button>
+      </div>
+    </aside>
+  </div>
+</body>
+</html>

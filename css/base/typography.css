@@ -1,0 +1,110 @@
+/**
+ * Tipografia
+ * Estilos de texto, títulos e formatação
+ */
+
+/* =====================================================
+   TÍTULOS E PARÁGRAFOS
+   ===================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-principal);
+  font-weight: var(--font-weight-bold);
+  color: var(--cor-texto);
+  margin: 0;
+  line-height: var(--line-height-tight);
+}
+
+p {
+  font-family: var(--font-principal);
+  color: var(--cor-texto);
+  line-height: var(--line-height-normal);
+  margin: 0 0 1rem 0;
+}
+
+/* =====================================================
+   TAMANHOS DE TÍTULO
+   ===================================================== */
+
+h1 {
+  font-size: var(--font-size-4xl);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+}
+
+/* =====================================================
+   LINKS
+   ===================================================== */
+
+a {
+  color: var(--cor-principal);
+  text-decoration: none;
+  transition: opacity var(--transition-base) var(--ease-out);
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* =====================================================
+   TEXTO INTRO (usado em várias páginas)
+   ===================================================== */
+
+.intro-text {
+  text-align: center;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--cor-texto);
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* =====================================================
+   CONSISTÊNCIA DE CORES EM TÍTULOS DE PÁGINA
+   ===================================================== */
+
+.container h2,
+.sobre-content h2,
+.producao-intro h2,
+.etapa-content h3 {
+  color: var(--cor-texto);
+}
+
+/* =====================================================
+   RESPONSIVE - MOBILE
+   ===================================================== */
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  h3 {
+    font-size: var(--font-size-xl);
+  }
+
+  .intro-text {
+    font-size: var(--font-size-base);
+  }
+}

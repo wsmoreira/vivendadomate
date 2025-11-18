@@ -1,0 +1,581 @@
+Explanation: fix malformed page, add proper head and canonical header and keep main content; remove duplicated/malformed header fragments.
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acessórios — Vivenda do Mate</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER PADRÃO (MOKA STYLE) -->
+  <header>
+    <div class="largura-limitada">
+      <div class="header-logo">
+        <a href="./index.html"><img src="./images/logomarca.png" alt="Vivenda do Mate"></a>
+      </div>
+
+      <nav>
+        <ul class="menu-principal">
+          <li>
+            <a href="#">Sobre</a>
+            <ul class="submenu">
+              <li><a href="quem-somos.html">Quem somos</a></li>
+              <li><a href="nossa-producao.html">Nossa produção</a></li>
+              <li><a href="etapas-producao.html">Etapas da produção</a></li>
+              <li><a href="indicacao-geografica.html">Indicação Geográfica</a></li>
+            </ul>
+          </li>
+
+        <li>
+          <a href="#">Turismo</a>
+          <ul class="submenu">
+            <li><a href="turismo.html">Passeios & Experiências</a></li>
+            <li><a href="atividades.html">Camping</a></li>
+          </ul>
+        </li>          <li>
+            <a href="receitas.html">Receitas</a>
+          </li>
+
+          <li>
+            <a href="loja.html">Loja</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-icones">
+        <a href="#" class="icone-link" aria-label="minha conta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+
+        <a href="#" class="icone-link icone-carrinho" aria-label="carrinho de compras">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="carrinho-contador">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container main-content" id="main-acessorios" role="main">
+    <section class="acessorios-secao">
+      <h1>Acessórios para Chimarrão</h1>
+      <p class="intro">
+        Complete sua experiência com o chimarrão! Confira nossa seleção de cuias, bombas, 
+        térmicas e outros acessórios artesanais e de qualidade.
+      </p>
+
+      <!-- Categorias de Acessórios -->
+      <div class="filtros-produtos fade-in">
+        <button class="filtro-btn ativo" data-categoria="todos">Todos</button>
+        <button class="filtro-btn" data-categoria="cuias">Cuias</button>
+        <button class="filtro-btn" data-categoria="bombas">Bombas</button>
+        <button class="filtro-btn" data-categoria="termicas">Térmicas</button>
+        <button class="filtro-btn" data-categoria="kits">Kits</button>
+        <button class="filtro-btn" data-categoria="outros">Outros</button>
+      </div>
+
+      <!-- Grid de Acessórios -->
+      <div class="produtos-grid">
+        
+        <!-- Acessório 1 -->
+        <article class="produto-card fade-in" data-categoria="cuias">
+          <div class="produto-imagem">
+            <img src="./images/cuia-porongo-natural.jpg" alt="Cuia de Porongo Natural" loading="lazy">
+            <span class="produto-badge">Artesanal</span>
+          </div>
+          <div class="produto-info">
+            <h3>Cuia de Porongo Natural</h3>
+            <p class="produto-descricao">
+              Cuia tradicional de porongo, curada e pronta para uso. Tamanho médio.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 45,90</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+        <!-- Acessório 2 -->
+        <article class="produto-card fade-in" data-categoria="cuias">
+          <div class="produto-imagem">
+            <img src="./images/cuia-ceramica.jpg" alt="Cuia de Cerâmica" loading="lazy">
+          </div>
+          <div class="produto-info">
+            <h3>Cuia de Cerâmica Esmaltada</h3>
+            <p class="produto-descricao">
+              Cuia moderna de cerâmica, fácil de limpar e manter. Diversas cores.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 38,90</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+        <!-- Acessório 3 -->
+        <article class="produto-card fade-in" data-categoria="cuias">
+          <div class="produto-imagem">
+            <img src="./images/cuia-madeira.jpg" alt="Cuia de Madeira" loading="lazy">
+            <span class="produto-badge premium">Premium</span>
+          </div>
+          <div class="produto-info">
+            <h3>Cuia de Madeira Nobre</h3>
+            <p class="produto-descricao">
+              Cuia artesanal em madeira de cedro, torneada à mão.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 89,90</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+        <!-- Acessório 4 -->
+        <article class="produto-card fade-in" data-categoria="bombas">
+          <div class="produto-imagem">
+            <img src="./images/bomba-inox.jpg" alt="Bomba de Inox" loading="lazy">
+            <span class="produto-badge">Mais Vendida</span>
+          </div>
+          <div class="produto-info">
+            <h3>Bomba de Inox com Filtro</h3>
+            <p class="produto-descricao">
+              Bomba em aço inoxidável 304, durável e fácil de limpar.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 24,90</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+        <!-- Acessório 5 -->
+        <article class="produto-card fade-in" data-categoria="bombas">
+          <div class="produto-imagem">
+            <img src="./images/bomba-alpaca.jpg" alt="Bomba de Alpaca" loading="lazy">
+          </div>
+          <div class="produto-info">
+            <h3>Bomba de Alpaca Tradicional</h3>
+            <p class="produto-descricao">
+              Bomba clássica de alpaca com detalhes decorativos.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 34,90</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+        <!-- Acessório 6 -->
+        <article class="produto-card fade-in" data-categoria="bombas">
+          <div class="produto-imagem">
+            <img src="./images/bomba-premium.jpg" alt="Bomba Premium" loading="lazy">
+            <span class="produto-badge premium">Premium</span>
+          </div>
+          <div class="produto-info">
+            <h3>Bomba Premium com Couro</h3>
+            <p class="produto-descricao">
+              Bomba especial com revestimento em couro legítimo.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 54,90</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+        <!-- Acessório 7 -->
+        <article class="produto-card fade-in" data-categoria="termicas">
+          <div class="produto-imagem">
+            <img src="./images/termica-1litro.jpg" alt="Térmica 1 Litro" loading="lazy">
+          </div>
+          <div class="produto-info">
+            <h3>Garrafa Térmica 1 Litro</h3>
+            <p class="produto-descricao">
+              Mantém a água quente por até 24 horas. Ideal para chimarrão.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 79,90</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+        <!-- Acessório 8 -->
+        <article class="produto-card fade-in" data-categoria="termicas">
+          <div class="produto-imagem">
+            <img src="./images/termica-2litros.jpg" alt="Térmica 2 Litros" loading="lazy">
+          </div>
+          <div class="produto-info">
+            <h3>Garrafa Térmica 2 Litros</h3>
+            <p class="produto-descricao">
+              Capacidade maior para compartilhar com amigos e família.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 119,90</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+        <!-- Acessório 9 -->
+        <article class="produto-card fade-in" data-categoria="kits">
+          <div class="produto-imagem">
+            <img src="./images/kit-iniciante.jpg" alt="Kit Iniciante" loading="lazy">
+            <span class="produto-badge">Kit Completo</span>
+          </div>
+          <div class="produto-info">
+            <h3>Kit Iniciante Completo</h3>
+            <p class="produto-descricao">
+              Cuia + Bomba + 500g de erva + Manual do chimarrão.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 89,90</span>
+              <span class="economia-badge">Economize 20%</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+        <!-- Acessório 10 -->
+        <article class="produto-card fade-in" data-categoria="kits">
+          <div class="produto-imagem">
+            <img src="./images/kit-premium.jpg" alt="Kit Premium" loading="lazy">
+            <span class="produto-badge premium">Premium</span>
+          </div>
+          <div class="produto-info">
+            <h3>Kit Premium Vivenda</h3>
+            <p class="produto-descricao">
+              Cuia premium + Bomba especial + Térmica + 1kg de erva.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 249,90</span>
+              <span class="economia-badge">Economize 25%</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+        <!-- Acessório 11 -->
+        <article class="produto-card fade-in" data-categoria="outros">
+          <div class="produto-imagem">
+            <img src="./images/porta-cuia.jpg" alt="Porta Cuia" loading="lazy">
+          </div>
+          <div class="produto-info">
+            <h3>Porta Cuia de Madeira</h3>
+            <p class="produto-descricao">
+              Base em madeira para apoiar sua cuia com segurança.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 29,90</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+        <!-- Acessório 12 -->
+        <article class="produto-card fade-in" data-categoria="outros">
+          <div class="produto-imagem">
+            <img src="./images/porta-erva.jpg" alt="Porta Erva" loading="lazy">
+          </div>
+          <div class="produto-info">
+            <h3>Porta Erva em Inox</h3>
+            <p class="produto-descricao">
+              Recipiente hermético para armazenar sua erva-mate.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 39,90</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+        <!-- Acessório 13 -->
+        <article class="produto-card fade-in" data-categoria="outros">
+          <div class="produto-imagem">
+            <img src="./images/escova-bomba.jpg" alt="Escova para Bomba" loading="lazy">
+          </div>
+          <div class="produto-info">
+            <h3>Escova Limpadora de Bomba</h3>
+            <p class="produto-descricao">
+              Acessório essencial para manter sua bomba sempre limpa.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 12,90</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+        <!-- Acessório 14 -->
+        <article class="produto-card fade-in" data-categoria="outros">
+          <div class="produto-imagem">
+            <img src="./images/mateira.jpg" alt="Mateira" loading="lazy">
+          </div>
+          <div class="produto-info">
+            <h3>Mateira de Couro Legítimo</h3>
+            <p class="produto-descricao">
+              Bolsa para transportar cuia, bomba e erva com estilo.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 149,90</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+        <!-- Acessório 15 -->
+        <article class="produto-card fade-in" data-categoria="cuias">
+          <div class="produto-imagem">
+            <img src="./images/cuia-inox.jpg" alt="Cuia de Inox" loading="lazy">
+          </div>
+          <div class="produto-info">
+            <h3>Cuia de Inox Térmico</h3>
+            <p class="produto-descricao">
+              Cuia moderna em aço inox com isolamento térmico duplo.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 69,90</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+        <!-- Acessório 16 -->
+        <article class="produto-card fade-in" data-categoria="outros">
+          <div class="produto-imagem">
+            <img src="./images/termometro.jpg" alt="Termômetro" loading="lazy">
+            <span class="produto-badge">Novidade</span>
+          </div>
+          <div class="produto-info">
+            <h3>Termômetro Digital para Água</h3>
+            <p class="produto-descricao">
+              Garanta a temperatura ideal (70-80°C) para seu chimarrão.
+            </p>
+            <div class="produto-preco">
+              <span class="preco-atual">R$ 34,90</span>
+            </div>
+            <button class="btn-slide btn-adicionar">Adicionar ao Carrinho</button>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Guia de Cuidados -->
+      <article class="bloco-sobre fade-in">
+        <div class="texto">
+          <h2>Cuide bem dos seus acessórios</h2>
+          <h3>Cuia de Porongo:</h3>
+          <ul>
+            <li>Faça a cura antes do primeiro uso</li>
+            <li>Lave apenas com água, sem sabão</li>
+            <li>Seque bem após o uso</li>
+            <li>Guarde em local ventilado</li>
+          </ul>
+          <h3>Bomba:</h3>
+          <ul>
+            <li>Lave com água quente após cada uso</li>
+            <li>Use escova específica para limpeza interna</li>
+            <li>Seque completamente antes de guardar</li>
+          </ul>
+          <h3>Térmica:</h3>
+          <ul>
+            <li>Lave com água e detergente neutro</li>
+            <li>Não use esponja abrasiva</li>
+            <li>Seque de cabeça para baixo</li>
+          </ul>
+        </div>
+        <div class="imagem">
+          <img src="./images/cuidados-acessorios.jpg" alt="Cuidados com os acessórios" loading="lazy">
+        </div>
+      </article>
+
+      <!-- FAQ -->
+      <section class="faq-produto fade-in">
+        <h2>Dúvidas Frequentes</h2>
+
+        <details>
+          <summary>Como fazer a cura da cuia de porongo?</summary>
+          <p>Encha a cuia com erva-mate usada e água quente. Deixe descansar por 24 horas. 
+          Repita o processo por 3 dias. Isso sela os poros e prepara a cuia para o uso.</p>
+        </details>
+
+        <details>
+          <summary>Qual o tamanho ideal de cuia?</summary>
+          <p>Para uso individual, recomendamos cuias de 200-350ml. Para compartilhar, 
+          cuias de 400-500ml são ideais.</p>
+        </details>
+
+        <details>
+          <summary>Qual a diferença entre bomba de inox e alpaca?</summary>
+          <p>Inox é mais durável e fácil de limpar. Alpaca tem visual tradicional e mais 
+          detalhes decorativos, mas requer mais cuidado na limpeza.</p>
+        </details>
+
+        <details>
+          <summary>As cuias vêm curadas?</summary>
+          <p>Nossas cuias de porongo já passam por um processo de cura inicial, mas 
+          recomendamos que você faça uma cura adicional em casa para melhor resultado.</p>
+        </details>
+
+      </section>
+
+    </section>
+  </main>
+
+    <!-- seção de contato padronizada -->
+    <section class="contato-secao">
+      <h2>entre em contato</h2>
+      <form class="contato-form" action="#" method="POST">
+        <div class="form-grupo">
+          <label for="contato-nome">nome</label>
+          <input type="text" id="contato-nome" name="nome" required>
+        </div>
+        <div class="form-grupo">
+          <label for="contato-email">e-mail</label>
+          <input type="email" id="contato-email" name="email" required>
+        </div>
+
+        <div class="form-grupo">
+          <label for="contato-whatsapp">whatSapp</label>
+          <input type="tel" id="contato-whatsapp" name="whatsapp" placeholder="(xx) xxxxx-xxxx">
+        </div>
+        <div class="form-grupo">
+          <label for="contato-mensagem">mensagem</label>
+          <textarea id="contato-mensagem" name="mensagem" rows="6" required></textarea>
+        </div>
+        <div class="form-grupo form-botao-container">
+          <button type="submit" class="btn-enviar">enviar</button>
+        </div>
+      </form>
+    </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="largura-limitada">
+      <div class="social-icones">
+        <a href="https://www.facebook.com/vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+
+        <a href="https://www.instagram.com/vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+
+        <a href="https://www.youtube.com/@vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso youtube">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 11.75a29 29 0 0 0-.46-5.33z">
+            </path>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+          </svg>
+        </a>
+      </div>
+
+      <p class="copyright-texto">
+        © 2025 Vivenda do Mate CNPJ: 40.801.747/0001-63.
+      </p>
+    </div>
+  </footer>
+
+    <a href="#" id="chatbox-widget" aria-label="abrir chat">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+    </a>
+
+    <!-- CARRINHO LATERAL -->
+    <div class="carrinho-sidebar-overlay" id="carrinhoOverlay"></div>
+    <aside class="carrinho-sidebar" id="carrinhoSidebar">
+        <div class="carrinho-sidebar-header">
+            <h2>Meu Carrinho</h2>
+            <button class="carrinho-close-btn" id="carrinhoCloseBtn" aria-label="Fechar carrinho">&times;</button>
+        </div>
+
+        <div class="carrinho-sidebar-content" id="carrinhoContent">
+            <div class="carrinho-vazio" id="carrinhoVazio">
+                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <p>Seu carrinho está vazio</p>
+            </div>
+            <div id="carrinhoItens"></div>
+        </div>
+
+        <div class="carrinho-sidebar-footer" id="carrinhoFooter" style="display: none;">
+            <div class="carrinho-total">
+                <span class="carrinho-total-label">Total:</span>
+                <span class="carrinho-total-valor" id="carrinhoTotalValor">R$ 0,00</span>
+            </div>
+            <button class="carrinho-finalizar-btn" id="carrinhoFinalizarBtn">Finalizar Compra</button>
+        </div>
+    </aside>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Script de filtro de produtos
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filtro-btn');
+      const productCards = document.querySelectorAll('.produto-card');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          filterButtons.forEach(btn => btn.classList.remove('ativo'));
+          this.classList.add('ativo');
+
+          const categoria = this.getAttribute('data-categoria');
+
+          productCards.forEach(card => {
+            if (categoria === 'todos' || card.getAttribute('data-categoria').includes(categoria)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Add to cart functionality
+      const addButtons = document.querySelectorAll('.btn-adicionar');
+      addButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const nomeProduto = this.closest('.produto-card').querySelector('h3').textContent;
+          alert(`"${nomeProduto}" adicionado ao carrinho!`);
+          
+          const contador = document.querySelector('.carrinho-contador');
+          let count = parseInt(contador.textContent);
+          contador.textContent = count + 1;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

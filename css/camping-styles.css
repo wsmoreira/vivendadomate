@@ -1,0 +1,915 @@
+/* Importação da fonte Poppins do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Estilos gerais para páginas de camping */
+body.camping-page {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ebe9de;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #002400;
+}
+
+/* IMPORTANTE: Não sobrescrever estilos do header e popup do site principal */
+body.camping-page header,
+body.camping-page header * {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Remover bordas e sombras do header para evitar linha entre header e camping-nav */
+body.camping-page header {
+    border-bottom: none !important;
+    box-shadow: none !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    outline: none !important;
+    will-change: transform, opacity;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1001; /* Ficar na frente do camping-nav durante transição */
+}
+
+/* Esconder o header quando scrolled, mantendo apenas o camping-nav */
+body.camping-page.scrolled header {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+body.camping-page header.header-rolando {
+    box-shadow: none !important;
+    border-bottom: none !important;
+    background-color: rgba(0, 51, 0, 0.90) !important;
+    padding-bottom: 0 !important;
+    outline: none !important;
+}
+
+/* Garantir que não haja borda inferior no header base */
+body.camping-page header .largura-limitada {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    outline: none !important;
+}
+
+/* Garantir que elementos dentro do header não criem bordas */
+body.camping-page header *,
+body.camping-page header nav,
+body.camping-page header .header-icones {
+    border-bottom: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Remover qualquer borda ou outline do camping-nav */
+.camping-nav {
+    outline: none !important;
+}
+
+/* Garantir que o popup mantenha TODOS os estilos do site principal */
+body.camping-page .popup-container {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+body.camping-page .popup-box {
+    padding: 30px !important;
+    max-width: 500px !important;
+    width: 90% !important;
+}
+
+body.camping-page .popup-close {
+    font-size: 2rem !important;
+    top: 10px !important;
+    right: 15px !important;
+    color: #aaa !important;
+}
+
+body.camping-page .popup-close:hover {
+    color: #333 !important;
+}
+
+body.camping-page .popup-box h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    color: var(--cor-principal) !important;
+    text-transform: uppercase !important;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    font-size: 1.5rem !important;
+}
+
+body.camping-page .popup-box p {
+    font-family: 'Montserrat', sans-serif !important;
+    color: var(--cor-texto) !important;
+    font-size: 1rem !important;
+    margin-bottom: 25px !important;
+}
+
+body.camping-page .popup-form label {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.8rem !important;
+    text-transform: uppercase !important;
+}
+
+body.camping-page .popup-form input {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1rem !important;
+}
+
+body.camping-page .btn-popup {
+    font-family: 'Montserrat', sans-serif !important;
+    background-color: var(--cor-principal) !important;
+    color: var(--cor-branca) !important;
+    padding: 12px 30px !important;
+    font-size: 1rem !important;
+    text-transform: uppercase !important;
+}
+
+/* Estilo para a BARRA DE LINKS DO CAMPING - posicionada abaixo do header e fixa ao rolar */
+.camping-nav {
+    background-color: var(--cor-principal); /* Mesma cor do header base */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    gap: 15px;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    transition: top 0.3s ease 0.1s, padding 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease; /* Delay no top */
+    border-top: none;
+    border-bottom: none;
+    box-shadow: none;
+    will-change: background-color, backdrop-filter, transform;
+}
+
+/* Quando scrolled, camping-nav sobe para o topo (lugar do header) */
+body.camping-page.scrolled .camping-nav {
+    top: 0 !important; /* Sobrescrever o JS e fixar no topo */
+    padding: 15px 0; /* Padding maior quando é o único menu visível */
+    transition: top 0.3s ease, padding 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease; /* Sem delay quando scrolled */
+}
+
+/* Efeito de transparência quando rolar a página - usar gradiente para suavizar transição */
+body.camping-page.scrolled .camping-nav {
+    background: linear-gradient(to bottom, 
+        rgba(0, 51, 0, 0.90) 0%, 
+        rgba(0, 51, 0, 0.90) 100%
+    );
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+/* Garantir que header não tenha padding-bottom extra */
+body.camping-page.scrolled header {
+    padding-bottom: 0 !important;
+}
+
+/* Garantir que header não tenha padding-bottom extra */
+body.camping-page.scrolled header {
+    padding-bottom: 0 !important;
+}
+
+body.camping-page.scrolled header .largura-limitada {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+}
+
+body.camping-page.scrolled header nav {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+}
+
+/* Ajustar padding do main para compensar o camping-nav fixo */
+body.camping-page main {
+    padding-top: 180px;
+}
+
+.camping-nav-link {
+    color: #ebe9de;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 14px;
+}
+
+.camping-nav-link:hover {
+    background-color: #002400;
+    transform: scale(1.1);
+    color: #FFFFFF;
+}
+
+.camping-nav-link i {
+    margin-right: 5px;
+}
+
+/* Seções gerais */
+section {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0;
+    margin-top: 30px;
+}
+
+/* HERO (Seção Bem-vindo) */
+.hero {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0;
+}
+
+.hero-link-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-link-wrapper:visited {
+    color: white;
+}
+
+.hero::before {
+    content: "";
+    border-radius: 50px;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    margin: 50px;
+    overflow: hidden;
+    transition: all 0.8s ease;
+    background-image: url('https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=2800,h=733,fit=crop/ALpb85yz96FkxGxG/vivenda-banner-site-1-mP4pnygK84cLyKyD.png');
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.hero:hover::before {
+    transform: scale(1.03);
+    filter: brightness(0.8);
+}
+
+.hero-link-wrapper .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    border-radius: 50px;
+    margin: 50px;
+    transition: all 0.8s ease;
+}
+
+.hero:hover .hero-link-wrapper .overlay {
+    background: rgba(0, 0, 0, 0.6);
+    transform: scale(1.03);
+}
+
+.hero-link-wrapper h2,
+.hero-link-wrapper p {
+    position: relative;
+    z-index: 3;
+    transition: transform 0.5s ease, font-size 0.5s ease;
+}
+
+.hero:hover .hero-link-wrapper h2 {
+    transform: translateY(-10px);
+    font-size: 3.2em;
+}
+
+.hero:hover .hero-link-wrapper p {
+    transform: translateY(10px);
+    font-size: 1.3em;
+}
+
+/* === ESTILOS PARA HOSPEDAGEM (FEATURES) === */
+#hospedagem {
+    padding: 50px 20px;
+}
+
+.features {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.feature {
+    width: calc(33.33% - 13.33px);
+    margin: 0;
+    padding: 20px;
+    background-color: #003300;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    height: auto;
+}
+
+.feature:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #1b3030;
+    transform: scale(1.05);
+}
+
+.feature i {
+    color: #ebe9de;
+    font-size: 3em !important;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    color: #ebe9de;
+}
+
+.feature p {
+    color: #ebe9de;
+}
+
+/* === ESTILOS PARA VIVÊNCIAS NA NATUREZA, FOGUEIRA E PLANTIO (LADO A LADO) === */
+.area-atividades {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.atividade-card-link {
+    width: calc(33.33% - 13.33px);
+    text-decoration: none;
+}
+
+/* Card de Atividade (Vivências/Fogueira/Plantio) */
+.atividade-card {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito Hover para os Cards */
+.atividade-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagem de Fundo do Card */
+.atividade-img-fundo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6);
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.atividade-card:hover .atividade-img-fundo {
+    transform: scale(1.1);
+    filter: brightness(0.4);
+}
+
+/* Conteúdo de Texto Sobreposto */
+.atividade-conteudo {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.atividade-conteudo h2 {
+    margin-top: 0;
+}
+
+.area-atividades #vivencias img,
+.area-atividades #fogueira img {
+    display: none;
+}
+
+/* === NOVO ESTILO: SEÇÃO DE CHAMADA PARA AÇÃO (CTA) === */
+#cta-reserva {
+    padding: 80px 20px;
+    margin: 50px auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+#cta-reserva h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+#cta-reserva p {
+    font-size: 1.1em;
+    max-width: 700px;
+    margin: 10px auto;
+}
+
+/* Estilo para o botão dentro da CTA */
+.button-link {
+    background-color: #003300;
+    color: #ebe9de;
+    border: none;
+    cursor: pointer;
+    margin-top: 25px;
+    padding: 15px 35px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.button-link:hover {
+    background-color: #004d00;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Reserva */
+.calendar-section {
+    background-color: rgba(235, 233, 222, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* === ESTILO ATUALIZADO: GRID DE RESERVA (2 COLUNAS) === */
+.reservation-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+}
+
+.grid-item {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.booking-column {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.calendar-column {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Melhorias visuais para o Calendário */
+.calendar-column h3 {
+    margin-top: 0;
+    color: #003300;
+    border-bottom: 1px solid #003300;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.selected-date-info {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+/* Container do Calendário */
+#calendar-container {
+    margin: 10px 0;
+    max-width: 100%;
+    display: block;
+}
+
+/* === ESTILOS DE CUSTOMIZAÇÃO DO FLATPICKR === */
+.flatpickr-calendar {
+    background-color: rgba(235, 233, 222, 0.95) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    color: #003300 !important;
+}
+
+.flatpickr-current-month .flatpickr-monthYear-container .flatpickr-month,
+.flatpickr-current-month .flatpickr-monthYear-container .flatpickr-year,
+.flatpickr-weekday,
+.flatpickr-day {
+    color: #003300 !important;
+}
+
+.flatpickr-prev-month svg,
+.flatpickr-next-month svg {
+    fill: #003300 !important;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover {
+    background: #002100 !important;
+    border-color: #002100 !important;
+    color: white !important;
+}
+
+.flatpickr-day:hover {
+    background: #003300 !important;
+    border-color: #003300 !important;
+}
+
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay {
+    color: #A9A9A9 !important;
+    pointer-events: none;
+}
+
+.flatpickr-day.prevMonthDay:hover,
+.flatpickr-day.nextMonthDay:hover {
+    background: transparent !important;
+    border-color: transparent !important;
+}
+
+/* Contêiner da Tabela de Preços */
+.price-table-container {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    border: 1px solid #ccc;
+    background-color: rgba(235, 233, 222, 0.95);
+    border-radius: 8px;
+    padding: 15px;
+    width: 90%;
+}
+
+.price-table-container h3 {
+    color: #003300;
+    margin-top: 0;
+}
+
+/* Tabela de Preços */
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 1.1em;
+}
+
+.price-table th, .price-table td {
+    border: 1px solid #003300;
+    padding: 10px;
+}
+
+.price-table th {
+    background-color: #003300;
+    color: white;
+    font-weight: bold;
+}
+
+.price-table .gratis-row td {
+    color: #003300;
+    font-weight: bold;
+}
+
+.nota-importante {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #856404;
+}
+
+.nota-importante i {
+    margin-right: 5px;
+    color: #856404;
+}
+
+/* Estilos para a seção de inputs da reserva (LAYOUT VERTICAL) */
+.booking-inputs {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(235, 233, 222, 0.95);
+    text-align: center;
+    box-sizing: border-box;
+    width: 90%;
+}
+
+.booking-inputs h3 {
+    color: #003300;
+    border-bottom: 1px solid #E0E0E0;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* ESTILO PARA AGRUPAR ADULTOS E CRIANÇAS LADO A LADO */
+.guest-counter-group {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.guest-counter-group > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+}
+
+/* Ajuste nos labels e inputs dentro do grupo */
+.guest-counter-group label {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    display: block;
+}
+
+.guest-counter-group input[type="number"],
+.guest-counter-group input[type="email"] {
+    width: 80px;
+    margin-bottom: 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.additional-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+    text-align: left;
+    width: 100%;
+}
+
+.additional-options div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.additional-options input[type="checkbox"] {
+    transform: scale(1.5);
+    accent-color: #003300;
+}
+
+.additional-options label {
+    margin: 0;
+    font-weight: normal;
+    color: #003300;
+}
+
+/* Destaque para o preço final (LAYOUT VERTICAL) */
+.total-display {
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 90%;
+}
+
+.total-final {
+    font-size: 1.3em;
+    color: #003300;
+    border-top: 2px dashed #003300;
+    padding-top: 15px;
+}
+
+.total-final strong {
+    color:#003300;
+}
+
+/* ESTILO PARA BOTÕES (PADRÃO, USADO NO RESERVA.HTML) */
+button {
+    background-color: #003300;
+    color: #ebe9de;
+    border: none;
+    cursor: pointer;
+    margin-top: 25px;
+    padding: 15px 35px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #004d00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.form-separator {
+    border: none;
+    border-top: 1px dashed #ccc;
+    margin: 25px 0;
+}
+
+/* === ESTILOS PARA PÁGINA VIVENCIAS.HTML (Antigo trilhas.html) === */
+#detalhe-vivencias,
+#detalhe-plantio,
+#detalhe-fogueira {
+    background-color: #ebe9de;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.title-trilhas {
+    color: #003300;
+    margin-bottom: 30px;
+}
+
+/* Container do Carrossel */
+.carousel-container {
+    max-width: 900px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin: 20px;
+}
+
+.carousel-slide {
+    display: flex;
+    width: 300%;
+    transition: transform 0.8s ease-in-out;
+}
+
+.carousel-img {
+    width: 33.33%;
+    height: 450px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Bloco de Texto Explicativo */
+.trilha-info-box {
+    max-width: 900px;
+    width: 100%;
+    margin-top: 30px;
+    text-align: left;
+    padding: 25px;
+    background-color: #ebe9de;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.trilha-info-box h3 {
+    color: #003300;
+    border-bottom: 2px solid #90EE90;
+    padding-bottom: 10px;
+}
+
+.trilha-info-box h4 {
+    color: #003300;
+    margin-top: 20px;
+}
+
+.trilha-info-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.trilha-info-box ul li {
+    margin-bottom: 10px;
+}
+
+.trilha-info-box ul li i {
+    color: #003300;
+    margin-right: 8px;
+}
+
+.trilha-info-box hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+.detalhes-flex {
+    display: flex;
+    gap: 30px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.detalhes-flex i {
+    color: #003300;
+    margin-right: 8px;
+}
+
+.cta-reserva {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 5px;
+    text-align: center;
+    color: #856404;
+}
+
+.cta-reserva a {
+    color: #003300;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.cta-reserva a:hover {
+    color: #004d00;
+}
+
+/* Media Query: Para telas menores que 768px */
+@media (max-width: 768px) {
+    .area-atividades {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .atividade-card-link {
+        width: 100%;
+    }
+
+    .carousel-img {
+        height: 300px;
+    }
+
+    .detalhes-flex {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .reservation-grid {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .calendar-column,
+    .booking-column {
+        width: 100%;
+    }
+
+    .features {
+        flex-direction: column;
+    }
+
+    .feature {
+        width: 100%;
+    }
+}

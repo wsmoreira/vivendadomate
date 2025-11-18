@@ -1,0 +1,449 @@
+/**
+ * Cards (Cartões)
+ * Estilos para todos os tipos de cards do site
+ */
+
+/* =====================================================
+   CARD BASE
+   ===================================================== */
+
+.card {
+  background: var(--bg-principal);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base) var(--ease-out);
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+/* =====================================================
+   CATEGORIA CARD (LOJA)
+   ===================================================== */
+
+.categoria-card {
+  background: var(--bg-principal);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base) var(--ease-out);
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+}
+
+.categoria-card:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-6px);
+}
+
+.categoria-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.categoria-card h3 {
+  padding: var(--spacing-lg);
+  margin: 0;
+  font-size: var(--font-size-xl);
+  color: var(--cor-texto);
+  text-align: center;
+  font-weight: var(--font-weight-semibold);
+}
+
+/* =====================================================
+   PRODUTO CARD
+   ===================================================== */
+
+.produto-card {
+  background: var(--bg-principal);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base) var(--ease-out);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.produto-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.produto-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.produto-info {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  flex: 1;
+}
+
+.produto-info h3 {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  color: var(--cor-texto);
+  font-weight: var(--font-weight-semibold);
+}
+
+.produto-info p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--cor-texto);
+  opacity: 0.8;
+  flex: 1;
+}
+
+.produto-preco {
+  font-size: var(--font-size-xl);
+  color: var(--cor-principal);
+  font-weight: var(--font-weight-bold);
+  margin: var(--spacing-sm) 0;
+}
+
+/* =====================================================
+   PLANO CARD (ASSINATURAS)
+   ===================================================== */
+
+.plano-card {
+  background: var(--bg-principal);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base) var(--ease-out);
+  text-align: center;
+  border: 2px solid transparent;
+}
+
+.plano-card:hover {
+  box-shadow: var(--shadow-2xl);
+  transform: translateY(-6px);
+  border-color: var(--cor-principal);
+}
+
+.plano-card.destaque {
+  border-color: var(--cor-principal);
+  box-shadow: var(--shadow-xl);
+}
+
+.plano-card h3 {
+  font-size: var(--font-size-2xl);
+  color: var(--cor-principal);
+  margin-bottom: var(--spacing-md);
+}
+
+.plano-preco {
+  font-size: var(--font-size-3xl);
+  color: var(--cor-texto);
+  font-weight: var(--font-weight-bold);
+  margin: var(--spacing-lg) 0;
+}
+
+.plano-frequencia {
+  font-size: var(--font-size-base);
+  color: var(--cor-texto);
+  opacity: 0.7;
+}
+
+.plano-caracteristicas {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-xl) 0;
+  text-align: left;
+}
+
+.plano-caracteristicas li {
+  padding: var(--spacing-sm) 0;
+  font-size: var(--font-size-base);
+  color: var(--cor-texto);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.plano-caracteristicas li::before {
+  content: '✓';
+  color: var(--cor-principal);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+}
+
+/* =====================================================
+   RECEITA CARD
+   ===================================================== */
+
+.receita-card {
+  background: var(--bg-principal);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base) var(--ease-out);
+  text-decoration: none;
+  display: block;
+}
+
+.receita-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.receita-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.receita-info {
+  padding: var(--spacing-lg);
+}
+
+.receita-info h3 {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-xl);
+  color: var(--cor-texto);
+  font-weight: var(--font-weight-semibold);
+}
+
+.receita-info p {
+  margin: 0;
+  font-size: var(--font-size-base);
+  color: var(--cor-texto);
+  opacity: 0.8;
+  line-height: var(--line-height-relaxed);
+}
+
+/* =====================================================
+   EXPERIÊNCIA CARD (TURISMO)
+   ===================================================== */
+
+.experiencia-card {
+  background: var(--bg-principal);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base) var(--ease-out);
+}
+
+.experiencia-card:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+}
+
+.experiencia-imagem {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.experiencia-conteudo {
+  padding: var(--spacing-xl);
+}
+
+.experiencia-conteudo h3 {
+  font-size: var(--font-size-2xl);
+  color: var(--cor-texto);
+  margin-bottom: var(--spacing-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.experiencia-conteudo p {
+  font-size: var(--font-size-base);
+  color: var(--cor-texto);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* =====================================================
+   BENEFÍCIO CARD (CLUBE FIDELIDADE)
+   ===================================================== */
+
+.beneficio-card {
+  background: var(--bg-principal);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base) var(--ease-out);
+  text-align: center;
+}
+
+.beneficio-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.beneficio-icone {
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--spacing-md);
+  color: var(--cor-principal);
+}
+
+.beneficio-card h3 {
+  font-size: var(--font-size-xl);
+  color: var(--cor-texto);
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.beneficio-card p {
+  font-size: var(--font-size-base);
+  color: var(--cor-texto);
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* =====================================================
+   PLANO ITEM (CLUBE FIDELIDADE)
+   ===================================================== */
+
+.plano-item {
+  background: linear-gradient(135deg, var(--bege-claro) 0%, var(--bege-medio) 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base) var(--ease-out);
+  text-align: center;
+  border: 3px solid transparent;
+}
+
+.plano-item:hover {
+  box-shadow: var(--shadow-2xl);
+  transform: translateY(-6px);
+  border-color: var(--marrom-escuro);
+}
+
+.plano-item.destaque {
+  border-color: var(--dourado);
+  box-shadow: var(--shadow-xl);
+  background: linear-gradient(135deg, var(--dourado) 0%, var(--marrom-claro) 100%);
+}
+
+.plano-item h3 {
+  font-size: var(--font-size-2xl);
+  color: var(--cor-texto);
+  margin-bottom: var(--spacing-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.plano-item .preco {
+  font-size: var(--font-size-3xl);
+  color: var(--marrom-escuro);
+  font-weight: var(--font-weight-bold);
+  margin: var(--spacing-lg) 0;
+}
+
+.plano-item ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-xl) 0;
+  text-align: left;
+}
+
+.plano-item ul li {
+  padding: var(--spacing-sm) 0;
+  font-size: var(--font-size-base);
+  color: var(--cor-texto);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.plano-item ul li::before {
+  content: '✓';
+  color: var(--marrom-escuro);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+}
+
+/* =====================================================
+   ATIVIDADE CARD (CAMPING)
+   ===================================================== */
+
+.atividade-card {
+  background: var(--bg-principal);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base) var(--ease-out);
+}
+
+.atividade-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.atividade-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.atividade-info {
+  padding: var(--spacing-lg);
+}
+
+.atividade-info h3 {
+  font-size: var(--font-size-xl);
+  color: var(--cor-texto);
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.atividade-info p {
+  font-size: var(--font-size-base);
+  color: var(--cor-texto);
+  opacity: 0.85;
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+/* =====================================================
+   RESPONSIVE - MOBILE
+   ===================================================== */
+
+@media (max-width: 900px) {
+  .produto-card img,
+  .receita-card img,
+  .atividade-card img {
+    height: 200px;
+  }
+
+  .experiencia-imagem {
+    height: 220px;
+  }
+
+  .plano-card,
+  .plano-item {
+    padding: var(--spacing-xl);
+  }
+
+  .produto-info,
+  .receita-info,
+  .atividade-info,
+  .experiencia-conteudo {
+    padding: var(--spacing-md);
+  }
+
+  .beneficio-card {
+    padding: var(--spacing-lg);
+  }
+
+  .plano-preco,
+  .plano-item .preco {
+    font-size: var(--font-size-2xl);
+  }
+}

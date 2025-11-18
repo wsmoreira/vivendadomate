@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Camping | Vivenda do Mate</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/camping-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body class="camping-page">
+ <header>
+  <div class="largura-limitada">
+    <div class="header-logo">
+      <a href="./index.html"><img src="./images/logomarca.png" alt="logo do site"></a>
+    </div>
+    <nav>
+      <ul class="menu-principal">
+        <li><a href="index.html">Sobre</a>
+          <ul class="submenu">
+            <li><a href="quem-somos.html">Quem somos</a></li>
+            <li><a href="nossa-producao.html">Nossa produção</a></li>
+            <li><a href="etapas-producao.html">Etapas da produção</a></li>
+            <li><a href="indicacao-geografica.html">Indicação Geográfica</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Turismo</a>
+          <ul class="submenu">
+            <li><a href="turismo.html">Passeios & Experiências</a></li>
+            <li><a href="atividades.html">Camping</a></li>
+          </ul>
+        </li>
+        <li><a href="receitas.html">Receitas</a></li>
+        <li><a href="loja.html">Loja</a></li>
+      </ul>
+    </nav>
+    <div class="header-icones">
+      <a href="#" class="icone-link" aria-label="minha conta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </a>
+      <a href="#" class="icone-link icone-carrinho" aria-label="carrinho de compras">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span class="carrinho-contador">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<nav class="camping-nav">
+    <a href="camping-vivencias.html" class="camping-nav-link"><i class="fas fa-leaf"></i> Vivências na Natureza</a>
+    <a href="camping-plantio.html" class="camping-nav-link"><i class="fas fa-seedling"></i> Plantio</a>
+    <a href="camping-fogueira.html" class="camping-nav-link"><i class="fas fa-fire"></i> Fogueira</a>
+    <a href="camping-reserva.html" class="camping-nav-link"><i class="fas fa-calendar"></i> Reserva</a>
+</nav>
+
+<main>
+    <section id="reserva" class="calendar-section">
+        <h2><i class="fas fa-calendar-check"></i> Faça sua Reserva</h2>
+
+        <div class="reservation-grid">
+
+            <div class="grid-item booking-column">
+
+                <div class="price-table-container">
+                    <h3>Tabela de Preços (Diária)</h3>
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>Hóspede</th>
+                                <th>Valor por Noite</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Adulto</td>
+                                <td>R$ 30,00</td>
+                            </tr>
+                            <tr class="gratis-row">
+                                <td>Criança (Até 12 anos)</td>
+                                <td>**Grátis!**</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="nota-importante">
+                        <i class="fas fa-campground"></i> Importante: O valor da diária não inclui barraca.
+                    </p>
+                </div>
+
+                <div class="booking-inputs">
+                    <h3><i class="fas fa-users"></i> Hóspedes</h3>
+                    <div class="guest-counter-group">
+                        <div>
+                            <label for="adultos">Adultos:</label>
+                            <input type="number" id="adultos" value="1" min="1" onchange="calculateTotal()">
+                        </div>
+                        <div>
+                            <label for="criancas">Crianças (até 12 anos):</label>
+                            <input type="number" id="criancas" value="0" min="0" onchange="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <hr class="form-separator">
+                    <h3><i class="fas fa-box-open"></i> Opções Adicionais (Por Hóspede, Por Noite)</h3>
+
+                    <div class="additional-options">
+                        <div>
+                            <input type="checkbox" id="pacoteCompleto" class="add-on-option" data-price="100" data-name="Pacote Completo (Barraca + Mate)" onchange="handleAddOnSelection(this); calculateTotal();">
+                            <label for="pacoteCompleto"><i class="fas fa-concierge-bell"></i> Pacote COMPLETO (R$ 100,00)</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="aluguelBarraca" class="add-on-option" data-price="50" data-name="Aluguel de Barraca" onchange="handleAddOnSelection(this); calculateTotal();">
+                            <label for="aluguelBarraca"><i class="fas fa-campground"></i> Aluguel de Barraca (R$ 50,00)</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="mateColonial" class="add-on-option" data-price="30" data-name="Mate Colonial" onchange="handleAddOnSelection(this); calculateTotal();">
+                            <label for="mateColonial"><i class="fas fa-mug-hot"></i> Mate Colonial (R$ 30,00)</label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="total-display">
+                    <p class="total-final">Total Estimado: <strong id="total-value">R$ 30,00</strong></p>
+                </div>
+
+            </div>
+
+            <div class="grid-item calendar-column">
+                <h3><i class="fas fa-calendar-alt"></i> Data do Acampamento</h3>
+                <div id="calendar-container"></div>
+                <p class="selected-date-info">Agendado para: <strong id="selected-date">Nenhuma</strong></p>
+            </div>
+
+        </div>
+        <button onclick="showPayment()">Ir para Pagamento</button>
+    </section>
+</main>
+
+<footer class="site-footer">
+  <div class="largura-limitada">
+    <div class="social-icones">
+      <a href="https://www.facebook.com/vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
+      <a href="https://www.youtube.com/@vivendadomate" target="_blank" rel="noopener noreferrer" aria-label="visite nosso youtube">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 11.75a29 29 0 0 0-.46-5.33z"></path>
+          <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+        </svg>
+      </a>
+    </div>
+    <p class="copyright-texto">© 2025 Vivenda do Mate CNPJ: 40.801.747/0001-63.</p>
+  </div>
+</footer>
+
+<a href="#" id="chatbox-widget" aria-label="abrir chat">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+</a>
+
+<div class="carrinho-sidebar-overlay" id="carrinhoOverlay"></div>
+<aside class="carrinho-sidebar" id="carrinhoSidebar">
+    <div class="carrinho-sidebar-header">
+        <h2>Meu Carrinho</h2>
+        <button class="carrinho-close-btn" id="carrinhoCloseBtn" aria-label="Fechar carrinho">&times;</button>
+    </div>
+    <div class="carrinho-sidebar-content" id="carrinhoContent">
+        <div class="carrinho-vazio" id="carrinhoVazio">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <p>Seu carrinho está vazio</p>
+        </div>
+        <div id="carrinhoItens"></div>
+    </div>
+    <div class="carrinho-sidebar-footer" id="carrinhoFooter" style="display: none;">
+        <div class="carrinho-total">
+            <span class="carrinho-total-label">Total:</span>
+            <span class="carrinho-total-valor" id="carrinhoTotalValor">R$ 0,00</span>
+        </div>
+        <button class="carrinho-finalizar-btn" id="carrinhoFinalizarBtn">Finalizar Compra</button>
+    </div>
+</aside>
+
+<script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt-br.js"></script>
+
+<script src="js/script.js"></script>
+<script src="js/camping.js"></script>
+<script src="js/camping-reserva.js"></script>
+<script>
+    // === CONTROLE DE ITENS EXTRAS ===
+    function handleAddOnSelection(selectedCheckbox) {
+        const checkboxes = document.querySelectorAll('.add-on-option');
+        checkboxes.forEach(checkbox => {
+            if (checkbox !== selectedCheckbox) {
+                checkbox.checked = false;
+            }
+        });
+
+        // Recalcular total quando add-on é selecionado
+        calculateTotal();
+    }
+
+    // === CONFIGURAÇÃO DO CALENDÁRIO ===
+    if (typeof flatpickr !== 'undefined' && flatpickr.l10ns.pt_br) {
+        flatpickr.localize(flatpickr.l10ns.pt_br);
+    }
+
+    const calendar = flatpickr("#calendar-container", {
+        dateFormat: "d/m/Y",
+        mode: "single",
+        inline: true,
+        onChange: function(selectedDates, dateStr) {
+            document.getElementById("selected-date").textContent = dateStr;
+            calculateTotal();
+        }
+    });
+
+    // Variável global para o módulo de reserva
+    let reservationManager;
+
+    // Função wrapper para compatibilidade com código existente
+    function calculateTotal() {
+        if (reservationManager) {
+            reservationManager.calculateTotal();
+        }
+    }
+
+    // Função wrapper para o botão de pagamento
+    function showPayment() {
+        if (reservationManager) {
+            reservationManager.processPayment();
+        }
+    }
+
+    // Inicializar módulos quando o DOM estiver pronto
+    document.addEventListener('DOMContentLoaded', () => {
+        // Inicializar navegação do camping
+        new CampingNavigation();
+
+        // Inicializar gerenciador de reservas
+        reservationManager = new CampingReservation();
+    });
+</script>
+</body>
+</html>

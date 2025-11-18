@@ -1,0 +1,72 @@
+/**
+ * CSS Reset e Estilos Base
+ * Normalização e configuração inicial do documento
+ */
+
+/* =====================================================
+   RESET BÁSICO
+   ===================================================== */
+
+html,
+body {
+  font-family: var(--font-principal);
+  color: var(--cor-texto);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* =====================================================
+   LAYOUT FLEXBOX PARA STICKY FOOTER
+   ===================================================== */
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* =====================================================
+   SCROLLBAR E OVERFLOW
+   ===================================================== */
+
+/* Força scrollbar vertical persistente para evitar layout shift
+   ao navegar entre páginas com alturas diferentes */
+html {
+  overflow-y: scroll;
+}
+
+/* Prevenir scroll horizontal indesejado */
+body {
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   PADDING DO MAIN
+   ===================================================== */
+
+main {
+  padding-top: 140px;
+}
+
+main.container.main-content {
+  padding-top: calc(140px + 2vh);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+/* =====================================================
+   MEDIA QUERIES - MOBILE
+   ===================================================== */
+
+@media (max-width: 900px) {
+  main.container.main-content {
+    padding-top: calc(80px + 1.5vh);
+  }
+}
