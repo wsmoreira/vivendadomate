@@ -6,7 +6,77 @@
   'use strict';
 
   /* =====================================================
-     1. UTILITÁRIOS
+     1. MENU MOBILE (HAMBURGUER)
+     ===================================================== */
+
+  /**
+   * Inicializa o menu hamburguer para mobile
+   */
+  function inicializarMenuMobile() {
+    const menuHamburguer = document.getElementById('menuHamburguer');
+    const menuPrincipal = document.getElementById('menuPrincipal');
+    const body = document.body;
+
+    if (!menuHamburguer || !menuPrincipal) return;
+
+    // Toggle menu ao clicar no hamburguer
+    menuHamburguer.addEventListener('click', function() {
+      menuHamburguer.classList.toggle('ativo');
+      menuPrincipal.classList.toggle('ativo');
+      body.classList.toggle('menu-aberto');
+    });
+
+    // Fechar menu ao clicar em um link (exceto links com submenu)
+    const links = menuPrincipal.querySelectorAll('.menu-principal > li > a');
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const parentLi = this.parentElement;
+        const submenu = parentLi.querySelector('.submenu');
+
+        // Se tem submenu, apenas toggle o submenu
+        if (submenu) {
+          e.preventDefault();
+          parentLi.classList.toggle('submenu-aberto');
+        } else {
+          // Se não tem submenu, fechar o menu mobile
+          menuHamburguer.classList.remove('ativo');
+          menuPrincipal.classList.remove('ativo');
+          body.classList.remove('menu-aberto');
+        }
+      });
+    });
+
+    // Fechar menu ao clicar em link do submenu
+    const linksSubmenu = menuPrincipal.querySelectorAll('.submenu a');
+    linksSubmenu.forEach(link => {
+      link.addEventListener('click', function() {
+        menuHamburguer.classList.remove('ativo');
+        menuPrincipal.classList.remove('ativo');
+        body.classList.remove('menu-aberto');
+      });
+    });
+
+    // Fechar menu ao clicar fora (no overlay)
+    menuPrincipal.addEventListener('click', function(e) {
+      if (e.target === menuPrincipal) {
+        menuHamburguer.classList.remove('ativo');
+        menuPrincipal.classList.remove('ativo');
+        body.classList.remove('menu-aberto');
+      }
+    });
+
+    // Fechar menu ao redimensionar para desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        menuHamburguer.classList.remove('ativo');
+        menuPrincipal.classList.remove('ativo');
+        body.classList.remove('menu-aberto');
+      }
+    });
+  }
+
+  /* =====================================================
+     2. UTILITÁRIOS
      ===================================================== */
 
   /**
@@ -1020,6 +1090,9 @@
      ===================================================== */
 
   document.addEventListener('DOMContentLoaded', function () {
+    // Menu Mobile
+    inicializarMenuMobile();
+
     // Utilitários
     marcarNavegacaoAtiva();
     ajustarPaddingMain();

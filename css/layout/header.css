@@ -350,40 +350,211 @@ nav {
 }
 
 /* =====================================================
+   BOTÃO HAMBURGUER (MOBILE)
+   ===================================================== */
+
+.menu-hamburguer {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  order: 3;
+}
+
+.menu-hamburguer span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--cor-branca);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.menu-hamburguer.ativo span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.menu-hamburguer.ativo span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-hamburguer.ativo span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* =====================================================
+   RESPONSIVE - TABLET
+   ===================================================== */
+
+@media (max-width: 1024px) {
+  .largura-limitada,
+  .header-container {
+    padding: 0 30px;
+    gap: 30px;
+    grid-template-columns: 150px 1fr 150px;
+  }
+
+  .menu-principal {
+    gap: 25px;
+  }
+
+  .menu-principal > li > a {
+    font-size: 1rem;
+  }
+}
+
+/* =====================================================
    RESPONSIVE - MOBILE
    ===================================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   header {
-    padding: 15px 0;
+    padding: 12px 0;
   }
 
   .largura-limitada,
   .header-container {
     padding: 0 20px;
-    gap: 20px;
-    grid-template-columns: auto 1fr auto;
+    gap: 15px;
+    grid-template-columns: 1fr auto auto;
+    position: relative;
+  }
+
+  .header-logo {
+    order: 1;
   }
 
   .header-logo img {
-    height: 45px;
+    height: 40px;
   }
 
-  .menu-principal {
-    gap: 20px;
+  /* Mostrar botão hamburguer */
+  .menu-hamburguer {
+    display: flex;
+    order: 3;
   }
 
-  .menu-principal > li > a {
-    font-size: 0.95rem;
-    padding: 8px 10px;
-  }
-
+  /* Ícones do header */
   .header-icones {
-    gap: 15px;
+    order: 2;
+    gap: 12px;
   }
 
   .header-icones a svg {
     width: 22px;
     height: 22px;
+  }
+
+  /* Menu mobile - overlay fullscreen */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 51, 0, 0.98);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    padding: 80px 20px 40px;
+    overflow-y: auto;
+  }
+
+  nav.ativo {
+    transform: translateX(0);
+  }
+
+  .menu-principal {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    max-width: 400px;
+    align-items: center;
+  }
+
+  .menu-principal > li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .menu-principal > li:last-child {
+    border-bottom: none;
+  }
+
+  .menu-principal > li > a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 18px 20px;
+    font-size: 1.2rem;
+    border-radius: 0;
+  }
+
+  .menu-principal > li > a::after {
+    display: none;
+  }
+
+  /* Submenu mobile */
+  .menu-principal li .submenu {
+    position: static;
+    transform: none;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .menu-principal > li.submenu-aberto > .submenu {
+    display: block;
+    max-height: 500px;
+  }
+
+  .menu-principal li .submenu li a {
+    padding: 14px 30px;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .menu-principal li .submenu li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Prevenir scroll do body quando menu aberto */
+  body.menu-aberto {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .largura-limitada,
+  .header-container {
+    padding: 0 15px;
+  }
+
+  .header-logo img {
+    height: 35px;
+  }
+
+  .menu-principal > li > a {
+    font-size: 1.1rem;
+    padding: 16px 15px;
+  }
+
+  .menu-principal li .submenu li a {
+    font-size: 0.95rem;
+    padding: 12px 25px;
   }
 }
