@@ -17,10 +17,18 @@
     const menuPrincipal = document.getElementById('menuPrincipal');
     const body = document.body;
 
-    if (!menuHamburguer || !menuPrincipal) return;
+    if (!menuHamburguer || !menuPrincipal) {
+      console.log('Menu mobile: elementos não encontrados');
+      return;
+    }
+
+    console.log('Menu mobile inicializado com sucesso');
 
     // Toggle menu ao clicar no hamburguer
-    menuHamburguer.addEventListener('click', function() {
+    menuHamburguer.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log('Hamburguer clicado!');
       menuHamburguer.classList.toggle('ativo');
       menuPrincipal.classList.toggle('ativo');
       body.classList.toggle('menu-aberto');
