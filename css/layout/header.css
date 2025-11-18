@@ -437,19 +437,25 @@ nav {
     gap: 45px !important;
     align-items: center !important;
     justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   .menu-principal > li {
     position: relative !important;
     border-bottom: none !important;
+    width: auto !important;
   }
 
   .menu-principal > li > a {
     padding: 12px 15px !important;
     display: inline-block !important;
     font-size: 1.1rem !important;
-    text-align: left !important;
+    text-align: center !important;
     width: auto !important;
+    position: relative !important;
+    color: var(--cor-branca) !important;
+    text-decoration: none !important;
   }
 
   .menu-principal > li > a::after {
@@ -458,16 +464,16 @@ nav {
     left: 50% !important;
     width: 0 !important;
     height: 2px !important;
-    bottom: 10px !important;
+    bottom: 8px !important;
     background-color: var(--cor-branca) !important;
     transform: translateX(-50%) !important;
-    transition: width var(--transition-slow) var(--ease-out) !important;
+    transition: width 0.3s ease !important;
     display: block !important;
   }
 
   .menu-principal > li > a:hover::after,
   .menu-principal > li > a.pagina-ativa::after {
-    width: 100% !important;
+    width: calc(100% - 30px) !important;
   }
 
   /* Submenu desktop */
