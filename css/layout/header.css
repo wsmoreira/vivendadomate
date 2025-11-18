@@ -633,31 +633,43 @@ nav {
 
   /* Submenu mobile */
   .menu-principal li .submenu {
-    position: static;
-    transform: none;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: none;
-    border-radius: 0;
-    padding: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    transition: max-height 0.3s ease !important;
   }
 
   .menu-principal > li.submenu-aberto > .submenu {
-    display: block;
-    max-height: 500px;
+    display: block !important;
+    max-height: 500px !important;
+  }
+
+  .menu-principal li .submenu li {
+    border-bottom: none !important;
+    background: transparent !important;
   }
 
   .menu-principal li .submenu li a {
-    padding: 14px 30px;
-    font-size: 1rem;
-    text-align: center;
+    padding: 14px 30px !important;
+    font-size: 1rem !important;
+    text-align: center !important;
+    color: var(--cor-branca) !important;
+    background: transparent !important;
+    display: block !important;
+    text-decoration: none !important;
   }
 
-  .menu-principal li .submenu li a:hover {
-    background: rgba(255, 255, 255, 0.1);
+  .menu-principal li .submenu li a:hover,
+  .menu-principal li .submenu li a:active,
+  .menu-principal li .submenu li a:focus {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: var(--cor-branca) !important;
   }
 
   /* Prevenir scroll do body quando menu aberto */
