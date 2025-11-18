@@ -397,6 +397,19 @@ nav {
     display: none !important;
   }
 
+  .largura-limitada,
+  .header-container {
+    display: grid !important;
+    grid-template-columns: 180px 1fr 180px !important;
+    align-items: center !important;
+    gap: 40px !important;
+  }
+
+  .header-logo {
+    order: 0 !important;
+    justify-self: start !important;
+  }
+
   nav {
     position: static !important;
     transform: none !important;
@@ -405,10 +418,84 @@ nav {
     backdrop-filter: none !important;
     padding: 0 !important;
     overflow: visible !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    justify-self: center !important;
+    order: 0 !important;
+  }
+
+  .header-icones {
+    order: 0 !important;
+    justify-self: end !important;
   }
 
   .menu-principal {
+    display: flex !important;
     flex-direction: row !important;
+    list-style: none !important;
+    gap: 45px !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .menu-principal > li {
+    position: relative !important;
+    border-bottom: none !important;
+  }
+
+  .menu-principal > li > a {
+    padding: 12px 15px !important;
+    display: inline-block !important;
+    font-size: 1.1rem !important;
+    text-align: left !important;
+    width: auto !important;
+  }
+
+  .menu-principal > li > a::after {
+    content: '' !important;
+    position: absolute !important;
+    left: 50% !important;
+    width: 0 !important;
+    height: 2px !important;
+    bottom: 10px !important;
+    background-color: var(--cor-branca) !important;
+    transform: translateX(-50%) !important;
+    transition: width var(--transition-slow) var(--ease-out) !important;
+    display: block !important;
+  }
+
+  .menu-principal > li > a:hover::after,
+  .menu-principal > li > a.pagina-ativa::after {
+    width: 100% !important;
+  }
+
+  /* Submenu desktop */
+  .menu-principal li .submenu {
+    position: absolute !important;
+    top: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: var(--cor-principal) !important;
+    border-radius: var(--radius-md) !important;
+    width: 260px !important;
+    box-shadow: var(--shadow-lg) !important;
+    z-index: var(--z-dropdown) !important;
+    padding: 14px 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .menu-principal > li:hover > .submenu,
+  .menu-principal > li:focus-within > .submenu {
+    display: block !important;
+  }
+
+  .menu-principal li .submenu li a {
+    padding: 12px 22px !important;
+    font-size: 1.05rem !important;
+    text-align: left !important;
+    width: auto !important;
   }
 }
 
