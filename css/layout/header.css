@@ -388,10 +388,35 @@ nav {
 }
 
 /* =====================================================
+   RESPONSIVE - DESKTOP (acima de 768px)
+   ===================================================== */
+
+@media (min-width: 769px) {
+  /* Garantir que o menu desktop funcione corretamente */
+  .menu-hamburguer {
+    display: none !important;
+  }
+
+  nav {
+    position: static !important;
+    transform: none !important;
+    height: auto !important;
+    background: none !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .menu-principal {
+    flex-direction: row !important;
+  }
+}
+
+/* =====================================================
    RESPONSIVE - TABLET
    ===================================================== */
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 769px) {
   .largura-limitada,
   .header-container {
     padding: 0 30px;
@@ -423,34 +448,21 @@ nav {
     gap: 15px;
     grid-template-columns: 1fr auto auto;
     position: relative;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .header-logo {
     order: 1;
+    flex: 0 0 auto;
   }
 
   .header-logo img {
     height: 40px;
   }
 
-  /* Mostrar botão hamburguer */
-  .menu-hamburguer {
-    display: flex;
-    order: 3;
-  }
-
-  /* Ícones do header */
-  .header-icones {
-    order: 2;
-    gap: 12px;
-  }
-
-  .header-icones a svg {
-    width: 22px;
-    height: 22px;
-  }
-
-  /* Menu mobile - overlay fullscreen */
+  /* Esconder nav no mobile por padrão */
   nav {
     position: fixed;
     top: 0;
@@ -467,6 +479,26 @@ nav {
     z-index: 1000;
     padding: 80px 20px 40px;
     overflow-y: auto;
+    order: 4;
+  }
+
+  /* Ícones do header */
+  .header-icones {
+    order: 2;
+    gap: 12px;
+    flex: 0 0 auto;
+  }
+
+  .header-icones a svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Mostrar botão hamburguer */
+  .menu-hamburguer {
+    display: flex;
+    order: 3;
+    flex: 0 0 auto;
   }
 
   nav.ativo {
